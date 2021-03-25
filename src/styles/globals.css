@@ -5,14 +5,15 @@
 }
 
 :root {
-  --background: radial-gradient(50% 50% at 50% 50%, #2E367D 0%, #0E1024 100%) no-repeat;
-  --banner: linear-gradient(269.73deg, #5965E0 29.82%, #00FF19 97.26%);
+  --purpleToGreenBlue: linear-gradient(89.89deg, #6B42E1 20.24%, rgba(20, 216, 228, 0.79) 97.14%);
+  --google:linear-gradient(90deg, #E3E3E3 5.22%, #FBFBFB 100%);
+  --facebook: linear-gradient(90deg, #4267B2 32.03%, rgba(107, 147, 226, 0.75) 100%);
   --red: #E83F5B;
-  --green: #00FF19;
-  --purple: #5965E0;
-  --purple-dark: #293078;
+  --greenBlue: #14D8E4;
+  --purple: #6B42E1;
+  /* --purple-dark: #293078;
   --deep-purple: #1C225C;
-  --black-purple:  #111542;
+  --black-purple:  #111542; */
 }
 
 @media(max-width: 1080px) {

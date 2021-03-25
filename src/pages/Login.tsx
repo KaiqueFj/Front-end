@@ -1,7 +1,13 @@
 import { useRouter } from "next/router";
 import React, { SyntheticEvent, useState } from "react";
+
 import Layout from "../Layout/Layout";
+import BannerWelcome from "../Components/bannerWelcome";
+import OtherLoginOptions from "../Components/otherLoginOptions";
+
 import styles from "../styles/pages/Register.module.css";
+import animate from '../styles/animation/animation.module.css';
+
 
 const Login = () => {
 
@@ -43,33 +49,54 @@ const Login = () => {
 
   return (
     <Layout>
-      <form onSubmit={submit} className={styles.form}>
-        <h1>Login</h1>
 
-        <div className={styles.inputContainer}>
-          <img src="img/userPurple.png" />
-          <input
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
-            required
-          />
-        </div>
+      <div className={`${styles.rowContainer} ${animate.up}`}>
 
-        <div className={styles.inputContainer}>
-          <img src="img/password.png" />
-          <input
-            onChange={(e) => setPassword(e.target.value)}
-            type="password"
-            placeholder="Password"
-            required
-          />
-        </div>
+        <BannerWelcome />
 
-        <button type="submit">
-          <img src="img/login.png" />
-          Criar Usuário
-        </button>
-      </form>
+        <form onSubmit={submit} className={styles.form}>
+
+          <div className={styles.legend}>
+            <h1>Login</h1>
+            <p>Caso não tenha uma conta...
+                <a href='/Register'> Registre-se</a>
+            </p>
+          </div>
+
+          <div className={styles.inputContainer}>
+            <img src="img/userPurple.png" />
+            <input
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="dona_lurdes@gmail.com"
+              required
+            />
+          </div>
+
+          <div className={styles.inputContainer}>
+            <img src="img/password.png" />
+            <input
+              onChange={(e) => setPassword(e.target.value)}
+              type="password"
+              placeholder="**********"
+              required
+            />
+          </div>
+
+          <div className={styles.forgotPassword}>
+            <a href='#'>Esqueceu a senha?</a>
+          </div>
+
+          <button type="submit">
+            <img src="img/login.png" />
+              Login
+          </button>
+
+          <OtherLoginOptions/>
+        </form>
+
+
+      </div>
+
     </Layout>
   );
 };
