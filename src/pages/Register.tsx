@@ -24,7 +24,7 @@ const Register = () => {
         e.preventDefault();
 
         // API connection
-        const register = await fetch('http://localhost:3333/register', {
+        const register = await fetch('http://localhost:3333/users/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -71,7 +71,7 @@ const Register = () => {
                         <img src="img/userPurple.png" />
                         <input
                             onChange={e => setEmail(e.target.value)}
-                            placeholder="dona_lurdes@gmail.com"
+                            placeholder="lurdes@gmail.com"
                             required
                         />
                     </div>

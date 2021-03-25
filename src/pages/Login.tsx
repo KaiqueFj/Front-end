@@ -21,7 +21,7 @@ const Login = () => {
     e.preventDefault();
 
     // API connection
-    const login = await fetch("http://localhost:3333/login", {
+    const login = await fetch("http://localhost:3333/users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -67,7 +67,7 @@ const Login = () => {
             <img src="img/userPurple.png" />
             <input
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="dona_lurdes@gmail.com"
+              placeholder="lurdes@gmail.com"
               required
             />
           </div>
@@ -83,7 +83,7 @@ const Login = () => {
           </div>
 
           <div className={styles.forgotPassword}>
-            <a href='#'>Esqueceu a senha?</a>
+            <a href='/Recover'>Esqueceu a senha?</a>
           </div>
 
           <button type="submit">

@@ -17,14 +17,14 @@
 }
 
 .legend h1 {
-    font-size: 3.5rem;
+    font-size: clamp(2.5rem, 3vw, 3.5rem);
     font-weight: 700;
 }
 
 .legend p {
     color: var(--purple);
     margin-top: 1vh;
-    font-size: 1.3rem;
+    font-size: clamp(1.2rem, 1.1vw, 1.3rem);
     font-weight: 500;
 }
 
@@ -73,8 +73,8 @@
     padding-left: 4.5rem;
     padding-right: 2rem;
     border: 0;
-    border-bottom: solid 5px var(--purple);
-    font-size: 1.3rem;
+    border-bottom: solid 3px var(--purple);
+    font-size: clamp(1.1rem, 1.1vw, 1.3rem);
     color: rgb(0, 0, 0);
 }
 
@@ -88,7 +88,7 @@
     height: 8vh;
     margin-top: 2rem;
     background-image: var(--purpleToGreenBlue);
-    font-size: 1.2rem;
+    font-size: clamp(1.2rem, 1.1vw, 22px);
     font-weight: 700;
     border: none;
     border-radius: 10px;
@@ -112,18 +112,18 @@
 
 /* FORGOT PASSWORD */
 
-.forgotPassword{
+.forgotPassword {
     width: 90%;
     text-align: right;
 }
 
-.forgotPassword a{
-    font-size: 1.3rem;
+.forgotPassword a {
+    font-size: clamp(1.1rem, 1.1vw, 1.3rem);
     font-weight: 500;
     color: var(--purple);
     transition: color 0.2s;
 }
 
-.forgotPassword a:hover{
+.forgotPassword a:hover {
     color: var(--greenBlue);
 }
