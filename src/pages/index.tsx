@@ -55,7 +55,7 @@ export default function Home() {
         <div>
           <h1>Faça login</h1>
           <a href="/Register">Registrar-se</a>
-          <a href="/Login">Login</a>
+          <a href="/Login">Loginn</a>
         </div>
       )}
 
