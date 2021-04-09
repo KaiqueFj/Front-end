@@ -6,14 +6,14 @@
     justify-content: center;
     align-items: center;
     background: var(--grayGradient);
-    width: clamp(60rem,65vw,80rem);
-    height: clamp(35rem, 33vw, 40rem);
+    width: clamp(50rem,65vw,80rem);
+    height: clamp(20rem, 30vw, 40rem);
     border-radius: 15px;
-    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.25);
+    box-shadow: 8px 8px 15px rgba(201, 135, 135, 0.25);
 }
 
 .emergencyGrid{
-    padding-top: 1.3rem;
+    padding-top: clamp(1.5rem, 1.5vw, 2rem);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
@@ -30,7 +30,7 @@
     align-items: center;
     gap: 1.5rem;
 
-    font-size: clamp(2rem, 2.5vw, 2.5rem);
+    font-size: clamp(1.5rem, 2vw, 2.5rem);
     font-weight: 700;
     color: #fff;
 
@@ -41,8 +41,8 @@
 }
 
 .emergencyItem img{
-    width: clamp(15rem, 15vw, 20rem);
-    height: clamp(16rem, 16vw, 20rem);
+    width: clamp(10rem, 15vw, 20rem);
+    height: clamp(11rem, 16vw, 20rem);
 }
 
 .emergencyItem:hover{

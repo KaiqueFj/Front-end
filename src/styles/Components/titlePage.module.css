@@ -1,11 +1,11 @@
 .titlePage {
     position: absolute;
-    top: -3.5vw;
+    top: -3vw;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1.3rem;
-    font-size: clamp(2rem, 4vw, 4rem);
+    font-size: clamp(1rem, 3vw, 4rem);
     font-weight: 700;
     color: #fff;
 
@@ -13,6 +13,6 @@
 }
 
 .titlePage img {
-    width: 7vw;
-    height: 7vw;
+    width: clamp(4rem,6vw, 7rem);
+    height: clamp(4rem,6vw, 7rem);
 }

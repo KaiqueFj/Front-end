@@ -21,7 +21,7 @@ const Login = () => {
     e.preventDefault();
 
     // API connection
-    const login = await fetch("http://localhost:3333/login", {
+    const login = await fetch("http://localhost:3333/users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

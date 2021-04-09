@@ -1,13 +1,13 @@
 .container {
-    margin-top: 2vw;
+    margin-top: clamp(3rem, 2vw, 4rem);
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background: var(--grayGradient);
-    width: clamp(69rem, 75vw, 90rem);
-    height: clamp(35rem, 33vw, 40rem);
+    width: clamp(60rem, 75vw, 90rem);
+    height: clamp(23rem, 33vw, 40rem);
     border-radius: 15px;
     box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.25);
 }
@@ -16,15 +16,15 @@
     width: 90%;
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: clamp(0.8rem, 1vw,1.5rem);
     overflow-x: scroll;
     overflow-y:hidden;
     margin-top: 4vw;
 }
 
 .emergencyItem {
-    min-width: clamp(18rem, 20vw, 25rem);
-    height: clamp(25rem, 25vw, 30rem);
+    min-width: clamp(17rem, 20vw, 25rem);
+    height: clamp(15rem, 25vw, 30rem);
     background: var(--verticalGradient);
     display: flex;
     flex-direction: column;
@@ -42,13 +42,13 @@
 .emergencyItem h3 {
     position: absolute;
     top: 1.2vw;
-    font-size: clamp(1.4rem, 1.5vw, 1.6rem);
+    font-size: clamp(1rem, 1.5vw, 1.6rem);
     font-weight: 700;
 }
 
 .emergencyItem a {
     position: absolute;
-    bottom: 1rem;
+    bottom: 1vw;
 }
 
 .emergencyItem a img {
@@ -70,7 +70,7 @@
 
 .noMedicines h2{
     text-align: center;
-    font-size: clamp(1.3rem,1.5vw, 1.5rem);
+    font-size: clamp(1rem,1.5vw, 1.5rem);
 }
 
 .noMedicines img{
@@ -85,7 +85,7 @@
     gap: 0.8vw;
     margin-top: 1rem;
     width: 90%;
-    height: 75%;
+    height: clamp(10rem, 18vw, 30rem);
     overflow-y: auto;
 }
 
@@ -101,7 +101,7 @@
     align-items: center;
     padding: 1.5vw;
     background: var(--darkPurple);
-    font-size: clamp(1.4rem, 1.5vw, 1.6rem);
+    font-size: clamp(1rem, 1.5vw, 1.6rem);
     font-weight: 700;
     border-radius: 15px;
     box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.25);
@@ -128,6 +128,7 @@
 
 .emergencyContainer::-webkit-scrollbar {
     width: 20px;
+    height: 1vw;
 }
 
 /* Track */

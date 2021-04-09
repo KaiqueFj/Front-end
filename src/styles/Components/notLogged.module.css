@@ -15,8 +15,8 @@
 }
 
 .loggedContainer {
-    width: clamp(23rem, 25vw, 28.5rem);
-    height: 30vh;
+    width: clamp(23rem, 25vw, 30rem);
+    height: clamp(10rem,15vw, 25rem);
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -24,13 +24,13 @@
     align-items: center;
     position: relative;
     background: var(--grayGradient);
-    margin-bottom: 5rem;
+    margin-bottom: clamp(2rem, 4vw, 5rem);
     box-shadow: 0px 8px 8px 5px rgba(0, 0, 0, 0.25);
 }
 
 .accountLogo {
-    width: clamp(12rem, 13vw, 16rem);
-    height: clamp(12rem, 26vh, 16rem);
+    width: clamp(10rem, 13vw, 16rem);
+    height: clamp(10rem, 26vh, 16rem);
     position: absolute;
     bottom: 16vh;
     filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.555));
@@ -38,9 +38,10 @@
 
 .buttonsContainer {
     width: 90%;
-    height: 10vh;
+    height: clamp(3rem,5vw, 7rem);
     border-radius: 15px;
-    padding: clamp(1rem, 1.5vw, 1.5rem);
+    padding-left: clamp(1rem, 1.5vw, 1.5rem);
+    padding-right: clamp(0.3rem, 0.5vw, 1.5rem);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -70,13 +71,13 @@
     justify-content: center;
     align-items: center;
     width: clamp(9rem, 10vw, 11rem);
-    height: 7vh;
+    height: 4vw;
     border-radius: 10px;
 }
 
 .buttonsContainer a~a div img {
-    width: 2rem;
-    height: 2rem;
+    width: 2vw;
+    height: 2vw;
 }
 
 .buttonsContainer a:first-child:hover {
@@ -90,14 +91,14 @@
 /* Video */
 
 .aboutUs {
-    margin-bottom: 10rem;
+    margin-bottom: clamp(3rem, 6vw, 10rem);
     position: relative;
 }
 
 .aboutUsImageContainer {
-    width: clamp(30rem, 35vw, 40rem);
-    height: clamp(30rem, 35vw, 40rem);
-    border-radius: 250px 0 250px 100px;
+    width: clamp(25rem, 35vw, 40rem);
+    height: clamp(20rem, 35vw, 40rem);
+    border-radius: 14vw 0 14vw 10vw;
     overflow: hidden;
     box-shadow: 0px 8px 8px 5px rgba(0, 0, 0, 0.25);
 }

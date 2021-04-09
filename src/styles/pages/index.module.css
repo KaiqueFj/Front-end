@@ -1,11 +1,11 @@
 .menuContainer{
-    width: clamp(55rem, 60vw, 65rem);
-    height: clamp(30rem, 35vw,40rem);
+    width: clamp(35rem, 55vw, 65rem);
+    height: clamp(20rem, 30vw,40rem);
 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    grid-gap: clamp(1rem, 2vw,2rem);
+    grid-gap: clamp(0.5rem, 1vw,2rem);
 }
 
 .menuItem {
@@ -13,6 +13,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 1.5vw;
 
     background: var(--grayGradient);
     border-radius: 15px;

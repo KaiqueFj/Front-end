@@ -1,44 +1,40 @@
-.container{
+.container {
     width: 100vw;
-    height: 12vh;
-
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-
-    padding: 3rem;
+    padding-left: 3vw;
+    padding-right: 3vw;
     position: absolute;
     top: 1rem;
 }
 
-.container div{
+.container div {
     display: flex;
     flex-direction: row;
     gap: 1rem;
     justify-content: center;
     align-items: center;
-
-    font-size: clamp(1.3rem, 1.5vw, 1.5rem);
+    font-size: clamp(1.2rem, 1.5vw, 1.5rem);
     font-weight: 700;
     color: #fff;
 }
 
-.container div img{
+.container div img {
     border-radius: 50%;
-    width: 6rem;
-    height: 6rem;
+    width: clamp(3.5rem, 5vw, 6rem);
+    height: clamp(3.5rem, 5vw, 6rem);
     filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.658));
 }
 
-.container a img{
-    width: 4rem;
-    height: 4rem;
-
+.container a img {
+    width: clamp(2.5rem, 4vw, 6rem);
+    height:  clamp(2.5rem, 4vw, 6rem);
     transition: transform 0.2s, filter 0.2s;
 }
 
-.container a img:hover{
+.container a img:hover {
     transform: scale(1.1);
     filter: brightness(0.8);
 }

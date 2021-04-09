@@ -22,7 +22,7 @@ export default function Home() {
       const token = localStorage.getItem('token')
 
       // API connection
-      const indexLogged = await fetch('http://localhost:3333/index', {
+      const indexLogged = await fetch('http://localhost:3333/users/home', {
         method: "GET",
         headers: {
           'Content-Type': 'application/json',

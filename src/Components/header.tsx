@@ -14,7 +14,7 @@ export default function Header() {
                 </a>
                 <div>
                     <img src='/img/teste.jpg' />
-                    <h3>Dona Lurdes</h3>
+                  {/*  <h3>Dona Lurdes</h3>*/}
                 </div>
         </div>
     )

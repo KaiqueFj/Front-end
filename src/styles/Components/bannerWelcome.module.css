@@ -16,12 +16,12 @@
 }
 
 .bannerContainer h1{
-    font-size: 5.5rem;
+    font-size: clamp(3rem,5vw,5.5rem);
     font-weight: 700;
 }
 
 .bannerContainer p{
-    font-size: 1.8rem;
+    font-size: clamp(1.3rem,1.5vw,1.8rem);
     font-weight: 500;
     text-align: right;
 }
