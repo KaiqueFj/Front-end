@@ -21,8 +21,8 @@ const MedicineDay = () => {
                 setDay(urlParams.get('day'))
 
                 // Get medicines on localStorage
-                const medicines = localStorage.getItem('medicines')
-                return setData(JSON.parse(medicines))
+                const schedule = localStorage.getItem('schedule')
+                return setData(JSON.parse(schedule))
 
             } catch (error) {
                 console.log(error)
@@ -48,11 +48,11 @@ const MedicineDay = () => {
 
                         <div className={`${styles.medicines} ${animate.upSlow}`}>
 
-                            {data.map((medicine) => (
+                            {data.map((consulta) => (
                                 <div className={animate.upMoreSlow}>
-                                    <p>{medicine.time}</p>
+                                    <p>{consulta.time}</p>
                                     <hr></hr>
-                                    <p>{medicine.medicine}</p>
+                                    <p>{consulta.schedule}</p>
                                     <button><img src='img/icons/delete.jpg' /></button>
                                 </div>
                             ))}
@@ -60,7 +60,7 @@ const MedicineDay = () => {
                         </div>
                     </div>
 
-                    <a href="addMedicine">
+                    <a href="addConsulta">
                         <div className={styles.addMedicine}>
                             <img src='/img/icons/add.png' />
                         </div>

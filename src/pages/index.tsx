@@ -49,7 +49,7 @@ export default function Home() {
     localStorage.clear()
     document.location.reload(true);
   }
-
+console.log(id)
   teste()
 
   return (
@@ -85,7 +85,7 @@ export default function Home() {
             </div>
 
             <div className={`${animate.up} ${styles.menuItem}`}>
-              <a href="#">
+            <a href="/Consulta">
                 <div>
                   <img src='img/icons/consultas.png' />
                   Consultas

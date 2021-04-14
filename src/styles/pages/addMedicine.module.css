@@ -35,10 +35,8 @@
     width: 100%;
     height: clamp(4rem, 4vw, 5rem);
     background: var(--darkPurple);
-    font-size: clamp(2.5rem, 3vw, 3rem);
-    font-weight: 600;
-    color: #fff;
     margin-bottom: 1.5vw;
+    position: relative;
 }
 
 .hoursContainer div {
@@ -47,6 +45,7 @@
     justify-content: left;
     align-items: center;
     overflow-x: auto;
+    color: #fff;
 }
 
 .hoursContainer div::-webkit-scrollbar {
@@ -64,6 +63,19 @@
     border-radius: 15px;
 }
 
+.hoursContainer div input{
+    cursor: pointer;
+    border: none;
+    font-size: clamp(2.5rem, 3vw, 3rem);
+    font-weight: 600;
+    color: #fff;
+    background: none;
+    min-width: clamp(7rem, 8vw, 8.5rem);
+}
+.hoursContainer div input::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
 .hoursContainer div hr {
     width: 2px;
     height: 2.5vw;
@@ -73,6 +85,8 @@
 }
 
 .hoursContainer button {
+    position: absolute;
+    right: 1vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -148,31 +162,35 @@
 }
 
 .daysWeek button {
-    background: var(--purple);
+    background: none;
     width: clamp(2.4rem, 3vw, 2.5rem);
     height: clamp(2.4rem, 3vw, 2.5rem);
     border: 0;
     border-radius: 50%;
     font-size: clamp(1.3rem, 1.2vw, 1.3rem);
     font-weight: 600;
-    color: #fff;
-
+    color: var(--purple);
     transition: transform 0.2s, filter 0.2s;
 }
 
-.daysWeek button:hover{
+.daysWeek button span{
+    display: none;
+}
+
+.daysWeek button:focus{
+    outline: thin dotted;
+    outline: 0px auto -webkit-focus-ring-color;
+    outline-offset: 0px;
+}
+
+.daysWeek button:hover {
     transform: scale(1.1);
     filter: brightness(0.8);
 }
 
-.daysWeek button:nth-child(1) {
-    background: none;
-    color: var(--purple)
-}
-
-.daysWeek button:nth-child(7) {
-    background: none;
-    color: var(--purple)
+#active {
+    background: var(--purple);
+    color: #fff
 }
 
 /* data especifica */
@@ -284,7 +302,7 @@
     height: 1.5vw;
 }
 
-.submitButton:hover{
+.submitButton:hover {
     transform: scale(1.03);
     filter: brightness(0.8);
 }

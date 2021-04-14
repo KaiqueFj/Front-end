@@ -4,9 +4,10 @@ import titlePage from "../styles/Components/titlePage.module.css";
 import styles from "../styles/pages/Medicines.module.css";
 import animate from "../styles/animation/animation.module.css";
 import Header from "../Components/header";
-import NoMedicines from "../Components/noMedicines";
+import NoMedicines from "../Components/noConsultas";
 import moment from "moment";
 import { useRouter } from "next/router";
+import NoConsultas from "../Components/noConsultas";
 
 const Medicine = () => {
   //Variables
@@ -23,26 +24,26 @@ const Medicine = () => {
   }
 
   // Filter data of days week
-  const segunda = data.filter((medicine) =>
-    moment(days[1]).isBetween(medicine.dateI, medicine.dateF, null, "[]")
+  const segunda = data.filter((consulta) =>
+    moment(days[1]).isBetween(consulta.dateI, consulta.dateF, null, "[]")
   );
-  const terca = data.filter((medicine) =>
-    moment(days[2]).isBetween(medicine.dateI, medicine.dateF, null, "[]")
+  const terca = data.filter((consulta) =>
+    moment(days[2]).isBetween(consulta.dateI, consulta.dateF, null, "[]")
   );
-  const quarta = data.filter((medicine) =>
-    moment(days[3]).isBetween(medicine.dateI, medicine.dateF, null, "[]")
+  const quarta = data.filter((consulta) =>
+    moment(days[3]).isBetween(consulta.dateI, consulta.dateF, null, "[]")
   );
-  const quinta = data.filter((medicine) =>
-    moment(days[4]).isBetween(medicine.dateI, medicine.dateF, null, "[]")
+  const quinta = data.filter((consulta) =>
+    moment(days[4]).isBetween(consulta.dateI, consulta.dateF, null, "[]")
   );
-  const sexta = data.filter((medicine) =>
-    moment(days[5]).isBetween(medicine.dateI, medicine.dateF, null, "[]")
+  const sexta = data.filter((consulta) =>
+    moment(days[5]).isBetween(consulta.dateI, consulta.dateF, null, "[]")
   );
-  const sabado = data.filter((medicine) =>
-    moment(days[6]).isBetween(medicine.dateI, medicine.dateF, null, "[]")
+  const sabado = data.filter((consulta) =>
+    moment(days[6]).isBetween(consulta.dateI, consulta.dateF, null, "[]")
   );
-  const domingo = data.filter((medicine) =>
-    moment(days[0]).isBetween(medicine.dateI, medicine.dateF, null, "[]")
+  const domingo = data.filter((consulta) =>
+    moment(days[0]).isBetween(consulta.dateI, consulta.dateF, null, "[]")
   );
 
   // variables to use in mapFunction
@@ -55,13 +56,13 @@ const Medicine = () => {
     "Sábado",
     "Domingo",
   ];
-  var medicinesOnDay = [segunda, terca, quarta, quinta, sexta, sabado, domingo];
+  var consultasOnDay = [segunda, terca, quarta, quinta, sexta, sabado, domingo];
 
   // Order medicines of day by time
   const array = [];
-  for (var i = 0; i < medicinesOnDay.length; i++) {
-    if (medicinesOnDay[i].length > 0) {
-      const x = medicinesOnDay[i].sort(function (a, b) {
+  for (var i = 0; i < consultasOnDay.length; i++) {
+    if (consultasOnDay[i].length > 0) {
+      const x = consultasOnDay[i].sort(function (a, b) {
         const n1 = parseInt(b.time.replace(":", ""));
         const n2 = parseInt(a.time.replace(":", ""));
         return n2 - n1;
@@ -73,7 +74,7 @@ const Medicine = () => {
   }
 
   // medicinesOnDay ordered
-  medicinesOnDay = array;
+  consultasOnDay = array;
 
   useEffect(() => {
     async function teste() {
@@ -105,9 +106,11 @@ const Medicine = () => {
 
           // Data to show
           data.push({
-            medicine: dataJson[i].medicine,
+            doctor: dataJson[i].doctor,
             id: dataJson[i].id,
             time: dataJson[i].time,
+            schedule: dataJson[i].schedule,
+            location: dataJson[i].location,
             dateI: initialDate,
             dateF: finalDate,
           });
@@ -128,8 +131,8 @@ const Medicine = () => {
       a.onclick = (event) => {
         const dayClicked = a.querySelector("span").innerHTML;
         localStorage.setItem(
-          "medicines",
-          JSON.stringify(medicinesOnDay[daysWeek.indexOf(dayClicked)])
+          "consultas",
+          JSON.stringify(consultasOnDay[daysWeek.indexOf(dayClicked)])
         );
 
         router.push(`/MedicineDay?day=${dayClicked}`);
@@ -144,7 +147,7 @@ const Medicine = () => {
         <div className={styles.container}>
           <div className={titlePage.titlePage}>
             <img src="/img/icons/medicine.png" />
-            Remédios
+            Consultas
           </div>
 
           <div className={styles.emergencyContainer}>
@@ -154,16 +157,16 @@ const Medicine = () => {
                 <h3>{days}</h3>
 
                 {/* if no has medicine in this day, show <NoMedicines/> */}
-                {medicinesOnDay[daysWeek.indexOf(days)].length > 0 ? (
+                {consultasOnDay[daysWeek.indexOf(days)].length > 0 ? (
                   <>
                     <div className={`${styles.medicines} ${animate.upSlow}`}>
                       {/* show each medicine of this day */}
-                      {medicinesOnDay[daysWeek.indexOf(days)].map(
-                        (medicine) => (
+                      {consultasOnDay[daysWeek.indexOf(days)].map(
+                        (consultas) => (
                           <div className={animate.upMoreSlow}>
-                            <p>{medicine.time}</p>
+                            <p>{consultas.time}</p>
                             <hr></hr>
-                            <p>{medicine.medicine}</p>
+                            <p>{consultas.schedule}</p>
                           </div>
                         )
                       )}
@@ -178,7 +181,7 @@ const Medicine = () => {
                     </a>
                   </>
                 ) : (
-                  <NoMedicines />
+                  <NoConsultas/>
                 )}
               </div>
             ))}

@@ -73,8 +73,9 @@
     font-size: clamp(1rem,1.5vw, 1.5rem);
 }
 
-.noMedicines img{
+.noMedicines a img{
     width: 75%;
+    height: 80%;
     margin-bottom: 1vw;
 }
 
