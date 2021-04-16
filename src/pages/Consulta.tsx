@@ -12,6 +12,7 @@ import AppointmentForm from "../Components/AppointmentForm";
 
 
 
+
 const Appointment = () => {
 
   
@@ -28,6 +29,8 @@ const Appointment = () => {
                     <AppointmentDescription />
                     <AppointmentVideo/>
                 </div>
+
+        
 
                <div className={styles.main}>
                    <div className={styles.hospitalSearch}>
