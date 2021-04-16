@@ -8,11 +8,14 @@
     "start": "next start"
   },
   "dependencies": {
+    "@types/google-maps": "^3.2.2",
     "fs": "^0.0.1-security",
+    "google-maps-react": "2.0.6",
     "moment": "^2.29.1",
     "next": "10.0.8",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "react-mapbox-gl": "^5.1.1"
   },
   "devDependencies": {
     "@types/node": "^14.14.33",
