@@ -1,0 +1,144 @@
+.container {
+    margin-top: clamp(3rem, 2vw, 4rem);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--grayGradient);
+    width: clamp(60rem, 75vw, 1730px);
+    height: clamp(23rem, 33vw, 625px);
+    border-radius: 15px;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.25);
+}
+
+.emergencyContainer {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    gap: clamp(0.8rem, 1vw, 1.5rem);
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin-top: clamp(3rem, 4vw, 60px);
+
+    &::-webkit-scrollbar {
+        width: 20px;
+        height: clamp(0.8rem, 1vw, 20px);
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #d9d9d9;
+        border-radius: 15px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: var(--purpleToGreenBlue);
+        border-radius: 15px;
+    }
+}
+
+.emergencyItem {
+    min-width: clamp(15rem, 20vw, 375px);
+    height: clamp(15rem, 25vw, 475px);
+    background: var(--verticalGradient);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    color: #fff;
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    transition: transform 0.2s, filter 0.2s;
+    position: relative;
+    margin-bottom: clamp(1rem, 2vw, 40px);
+
+    h3 {
+        position: absolute;
+        top: clamp(0.6rem, 1.2vw, 18px);
+        font-size: clamp(1rem, 1.5vw, 1.6rem);
+        font-weight: 700;
+    }
+
+    a {
+        cursor: pointer;
+        position: absolute;
+        bottom: clamp(0.5rem, 1vw, 15px);
+
+        span {
+            display: none;
+        }
+    }
+}
+
+.seeMoreBTN {
+    width: clamp(1rem, 1.5vw, 22.5px);
+    height: clamp(0.7rem, 1vw, 15px);
+    transition: scale 0.4s;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+.medicines {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(0.4rem, 0.8vw, 12px);
+    margin-top: 1rem;
+    width: 90%;
+    height: clamp(10rem, 18vw, 350px);
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    div {
+        width: 100%;
+        height: clamp(2.5rem, 3.7vw, 55px);
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        padding: clamp(0.8rem, 1.5vw, 20px);
+        background: var(--darkPurple);
+        font-size: clamp(1rem, 1.5vw, 1.5rem);
+        font-weight: 700;
+        border-radius: 15px;
+        box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.25);
+        transition: filter 0.2s;
+        cursor: pointer;
+
+        &:hover {
+            filter: brightness(0.8);
+        }
+
+        &:nth-child(2) {
+            background: var(--greenBlue);
+        }
+
+        &:nth-child(3) {
+            background: #f306ea;
+        }
+
+        &:nth-child(4) {
+            background: #2ecd5b;
+        }
+
+        &:nth-child(5) {
+            background: #f37806;
+        }
+
+        p ~ p {
+            overflow: hidden;
+        }
+    }
+
+    hr {
+        height: clamp(1.5rem, 2.5vw, 37.5px);
+        border-left: 1px solid;
+        margin-left: clamp(0.5rem, 1vw, 20px);
+        margin-right: clamp(0.5rem, 1vw, 20px);
+    }
+}

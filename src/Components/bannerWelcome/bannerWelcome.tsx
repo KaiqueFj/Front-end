@@ -1,4 +1,4 @@
-import styles from '../styles/Components/bannerWelcome.module.css';
+import styles from './styles.module.scss';
 
 export default function BannerWelcome() {
 

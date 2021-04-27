@@ -262,6 +262,14 @@ anymatch@~3.1.1:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
 
+"argparse@~ 0.1.3":
+  version "0.1.16"
+  resolved "https://registry.yarnpkg.com/argparse/-/argparse-0.1.16.tgz#cfd01e0fbba3d6caed049fbd758d40f65196f57c"
+  integrity sha1-z9AeD7uj1srtBJ+9dY1A9lGW9Xw=
+  dependencies:
+    underscore "~1.7.0"
+    underscore.string "~2.4.0"
+
 asn1.js@^5.2.0:
   version "5.4.1"
   resolved "https://registry.yarnpkg.com/asn1.js/-/asn1.js-5.4.1.tgz#11a980b84ebb91781ce35b0fdc2ee294e3783f07"
@@ -947,6 +955,18 @@ jest-worker@24.9.0:
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
   integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
 
+"js-yaml@>=0.3.5 <1.1.0":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-1.0.3.tgz#ec619760ffc8ae501c3d62673d874e2b9f07422a"
+  integrity sha1-7GGXYP/IrlAcPWJnPYdOK58HQio=
+  dependencies:
+    argparse "~ 0.1.3"
+
+jsml@<0.1.0:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/jsml/-/jsml-0.0.1.tgz#b60a67478b0bbc8cbf892ad422b41e1bc29fc6b9"
+  integrity sha1-tgpnR4sLvIy/iSrUIrQeG8Kfxrk=
+
 json5@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/json5/-/json5-1.0.1.tgz#779fb0018604fa854eacbf6252180d83543e3dbe"
@@ -1363,6 +1383,14 @@ prop-types@15.7.2:
     loose-envify "^1.4.0"
     object-assign "^4.1.1"
     react-is "^16.8.1"
+
+props@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/props/-/props-0.3.0.tgz#98ba67065fb4a6e352538ed40a73070fddabd0f6"
+  integrity sha1-mLpnBl+0puNSU47UCnMHD92r0PY=
+  dependencies:
+    js-yaml ">=0.3.5 <1.1.0"
+    jsml "<0.1.0"
 
 protocol-buffers-schema@^3.3.1:
   version "3.5.1"
@@ -1797,6 +1825,16 @@ typescript@^4.2.3:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.2.3.tgz#39062d8019912d43726298f09493d598048c1ce3"
   integrity sha512-qOcYwxaByStAWrBf4x0fibwZvMRG+r4cQoTjbPtUlrWjBHbmCAww1i448U0GJ+3cNNEtebDteo/cHOR3xJ4wEw==
+
+underscore.string@~2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/underscore.string/-/underscore.string-2.4.0.tgz#8cdd8fbac4e2d2ea1e7e2e8097c42f442280f85b"
+  integrity sha1-jN2PusTi0uoefi6Al8QvRCKA+Fs=
+
+underscore@~1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.7.0.tgz#6bbaf0877500d36be34ecaa584e0db9fef035209"
+  integrity sha1-a7rwh3UA02vjTsqlhODbn+8DUgk=
 
 unpipe@1.0.0:
   version "1.0.0"

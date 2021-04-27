@@ -1,4 +1,4 @@
-import styles from '../styles/Components/otherLoginOptions.module.css';
+import styles from './styles.module.scss';
 
 export default function OtherLoginOptions() {
 

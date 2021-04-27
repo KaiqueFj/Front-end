@@ -1,0 +1,167 @@
+.container {
+    margin-top: clamp(15rem, 20vw, 300px);
+    margin-right: clamp(20rem, 37vw, 45rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h3 {
+        font-size: clamp(1rem, 3vw, 4rem);
+        font-weight: 600;
+        color: var(--darkPurple);
+    }
+
+    p {
+        width: clamp(25rem, 35vw, 44rem);
+        text-align: center;
+        font-size: clamp(0.7rem, 1.3vw, 1.3rem);
+        font-weight: 400;
+        color: var(--purple);
+    }
+
+    form {
+        position: absolute;
+        margin-top: clamp(4rem, 10vw, 150px);
+        padding: 2rem 2rem 4rem 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        gap: clamp(0.5rem, 1vw, 15px);
+        width: clamp(30rem, 40vw, 50rem);
+        border-radius: 20px;
+        background: var(--verticalGradient);
+        box-shadow: 8px 8px 8px 2px rgba(0, 0, 0, 0.404);
+    }
+
+    form h4 {
+        margin-top: clamp(1rem, 2vw, 30px);
+        font-size: clamp(1.3rem, 2vw, 2rem);
+        font-weight: 600;
+        color: #fff;
+
+        &:first-child{
+            margin-bottom: clamp(1rem, 2vw, 30px);
+
+        }
+    }
+
+    /* Inputs: name, weight and height */
+
+    input[type="text"] {
+        width: 100%;
+        height: clamp(2.5rem, 3vw, 50px);
+        border: 0;
+        border-radius: 10px;
+        padding: 0 2rem 0 2rem;
+        font-size: clamp(1rem, 1.3vw, 1.5rem);
+
+        &::placeholder{
+            font-weight: 500;
+            color: var(--placeholder);
+        }
+    }
+
+
+    textarea {
+        resize: none;
+        height: clamp(7rem, 10vw, 11rem);
+        border: 0;
+        border-radius: 15px;
+        padding: clamp(0.5rem, 1vw, 15px);
+        font-size: clamp(1rem, 1.2vw, 1.5rem);
+        font-weight: 500;
+
+        &::placeholder{
+            color: var(--placeholder);
+        }
+    }
+
+    button {
+        margin-top: clamp(2.5rem, 3vw, 45px);
+        height: clamp(4rem, 5vw, 7rem);
+        background: var(--purple);
+        border: 0;
+        border-radius: 15px;
+        font-size: clamp(1.4rem, 1.8vw, 2rem);
+        font-weight: 600;
+        color: #fff;
+        transition: filter 0.2s;
+
+        &:hover {
+            filter: brightness(0.8);
+        }
+    }
+}
+
+.PersonalInformationRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: clamp(0.4rem, 0.8vw, 12px);
+}
+
+/* checkbox */
+
+.checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(0.5rem, 1vw, 15px);
+
+    div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: clamp(1rem, 1.2vw, 1.5rem);
+        font-weight: 600;
+        color: #fff;
+    }
+
+    div input {
+        all: unset;
+        width: clamp(1.5rem, 1.5vw, 1.8rem);
+        height: clamp(1.5rem, 1.3vw, 1.8rem);
+        padding: 0.4rem;
+        background: white;
+        transition: border-radius 0.2s;
+
+        &:after {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            content: url("/img/icons/check.png");
+        }
+
+        &:checked {
+            background: var(--darkPurple);
+            border-radius: 4px;
+        }
+    }
+}
+
+/* selects */
+.select {
+    height: clamp(2.5rem, 3vw, 50px);
+    border: 0;
+    border-radius: 15px;
+    padding: 0 1.3rem 0 1.3rem;
+    font: 400 1rem "Montserrat", sans-serif;
+    font-size: clamp(1rem, 1.2vw, 1.5rem);
+    font-weight: 500;
+    color: var(--placeholder);
+    transition: filter 0.2s;
+
+    &:hover,
+    &:focus {
+        filter: brightness(0.85);
+    }
+
+    option {
+        color: #fff;
+        background: var(--purple);
+
+        &:hover {
+            background: var(--darkPurple);
+        }
+    }
+}

@@ -1,4 +1,4 @@
-import styles from '../styles/Components/AppointmentForm.module.css';
+import styles from './styles.module.scss';
 
 export default function AppointmentForm() {
 

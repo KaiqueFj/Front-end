@@ -3,8 +3,8 @@ import Layout from "../Layout/Layout";
 import titlePage from "../styles/Components/titlePage.module.css";
 import styles from "../styles/pages/Medicines.module.css";
 import animate from "../styles/animation/animation.module.css";
-import Header from "../Components/header";
-import NoMedicines from "../Components/noMedicines";
+import Header from "../Components/Header/header";
+import NoMedicines from "../Components/NoMedicine/NoMedicines";
 import moment from "moment";
 import { useRouter } from "next/router";
 
@@ -150,17 +150,21 @@ const Medicine = () => {
           <div className={styles.emergencyContainer}>
             {/* Show div of each day in week */}
             {daysWeek.map((days) => (
-              <div className={`${styles.emergencyItem} ${animate.up}`}>
+              
+              <div className={`${styles.emergencyItem} ${animate.up}`}
+              >
                 <h3>{days}</h3>
 
-                {/* if no has medicine in this day, show <NoMedicines/> */}
+                {/* if has no medicine in this day, show <NoMedicines/> */}
                 {medicinesOnDay[daysWeek.indexOf(days)].length > 0 ? (
                   <>
                     <div className={`${styles.medicines} ${animate.upSlow}`}>
                       {/* show each medicine of this day */}
                       {medicinesOnDay[daysWeek.indexOf(days)].map(
                         (medicine) => (
-                          <div className={animate.upMoreSlow}>
+                          <div className={animate.upMoreSlow} >
+
+                           
                             <p>{medicine.time}</p>
                             <hr></hr>
                             <p>{medicine.medicine}</p>

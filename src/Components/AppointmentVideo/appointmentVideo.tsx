@@ -1,7 +1,5 @@
-import styles from '../styles/Components/appointmentVideo.module.css';
-import animate from '../styles/animation/animation.module.css';
-import PlayVideo from './playVideo';
-
+import styles from './styles.module.scss';
+import PlayVideo from '../playVideo/playVideo';
 
 export default function AppointmentVideo() {
 

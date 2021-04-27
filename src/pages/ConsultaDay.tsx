@@ -3,7 +3,7 @@ import Layout from "../Layout/Layout";
 import titlePage from '../styles/Components/titlePage.module.css';
 import styles from '../styles/pages/MedicineDay.module.css';
 import animate from '../styles/animation/animation.module.css';
-import Header from "../Components/header";
+import Header from "../Components/Header/header";
 
 const MedicineDay = () => {
     //Variables

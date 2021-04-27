@@ -1,0 +1,26 @@
+.container {
+    position: absolute;
+    width: clamp(7rem, 10vw, 150px);
+    height: clamp(7rem, 10vw, 150px);
+    background-image: url("/img/backgrounds/video.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    left: clamp(-2.5rem, -3vw, -45px);
+    bottom: clamp(-2rem, -3vw, -45px);
+
+    img {
+        width: clamp(2rem, 2vw, 30px);
+        height: clamp(2rem, 2vw, 30px);
+        transition: transform 0.2s;
+        cursor: pointer;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+}

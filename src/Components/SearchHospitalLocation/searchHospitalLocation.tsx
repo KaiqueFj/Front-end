@@ -1,4 +1,4 @@
-import styles from '../styles/Components/searchHospitalLocation.module.css';
+import styles from './styles.module.scss';
 
 export default function SearchHospitalLocation() {
 

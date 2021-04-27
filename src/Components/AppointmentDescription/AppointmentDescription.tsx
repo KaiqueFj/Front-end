@@ -1,4 +1,4 @@
-import styles from '../styles/Components/AppointmentDescription.module.css';
+import styles from './styles.module.scss';
 import animate from '../styles/animation/animation.module.css';
 
 
