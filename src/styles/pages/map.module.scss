@@ -1,0 +1,34 @@
+.main{
+    h1{
+        color:red
+    }
+
+    .mapboxgl-popup {
+        max-width: 200px;
+      }
+      
+      .mapboxgl-popup-content {
+        text-align: center;
+        font-family: 'Open Sans', sans-serif;
+      }
+
+
+      .marker {
+        background-image: url('../../../public/img/mapbox-icon.png');
+        background-size: cover;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+}
+   
+
+
+    
+    
+
+
+
+

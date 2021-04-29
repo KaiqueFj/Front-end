@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import header from '../styles/Components/header.module.css';
-import NotLogged from '../Components/NotLogged';
+import NotLogged from '../Components/NotLogged/notLogged';
 import Layout from '../Layout/Layout';
 import styles from '../styles/pages/index.module.css';
 import animate from '../styles/animation/animation.module.css';

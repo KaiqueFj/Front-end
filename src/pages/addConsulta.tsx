@@ -4,7 +4,7 @@ import titlePage from "../styles/Components/titlePage.module.css";
 import styles from "../styles/pages/addMedicine.module.css";
 import animate from "../styles/animation/animation.module.css";
 import Head from "next/head";
-import Header from "../Components/header";
+import Header from "../Components/Header/header";
 import moment from "moment";
 import { useRouter } from "next/router";
 

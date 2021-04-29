@@ -2,8 +2,8 @@ import React, { SyntheticEvent, useState } from "react";
 import { useRouter } from "next/router";
 
 import Layout from "../Layout/Layout";
-import BannerWelcome from "../Components/bannerWelcome";
-import OtherLoginOptions from "../Components/otherLoginOptions";
+import BannerWelcome from "../Components/bannerWelcome/bannerWelcome";
+import OtherLoginOptions from "../Components/OtherLoginOptions/otherLoginOptions";
 
 import styles from "../styles/pages/Register.module.css";
 import animate from '../styles/animation/animation.module.css';

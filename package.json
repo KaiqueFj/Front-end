@@ -2,12 +2,14 @@
   "name": "next-adonis",
   "version": "0.1.0",
   "private": true,
+  "browser": { "fs": false, "path": false, "os": false},
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
+    "@mapbox/mapbox-gl-directions": "^4.1.0",
     "@types/google-maps": "^3.2.2",
     "@types/leaflet": "^1.7.0",
     "fs": "^0.0.1-security",
@@ -16,13 +18,15 @@
     "leaflet-defaulticon-compatibility": "^0.1.1",
     "leaflet-geosearch": "^3.3.1",
     "mapbox-gl": "^2.2.0",
+    "mapbox-gl-directions": "^3.0.3",
     "moment": "^2.29.1",
     "next": "10.0.8",
     "props": "^0.3.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-leaflet": "^3.1.0",
-    "react-mapbox-gl": "^5.1.1"
+    "react-mapbox-gl": "^5.1.1",
+    "sass": "^1.32.11"
   },
   "devDependencies": {
     "@types/node": "^14.14.33",
