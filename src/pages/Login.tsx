@@ -1,15 +1,15 @@
 import React, { SyntheticEvent, useState } from "react";
 import { useRouter } from "next/router";
 
-import Layout from "../Layout/Layout";
 import BannerWelcome from "../Components/bannerWelcome/bannerWelcome";
 import OtherLoginOptions from "../Components/OtherLoginOptions/otherLoginOptions";
 
-import styles from "../styles/pages/Register.module.css";
-import animate from '../styles/animation/animation.module.css';
-
+import styles from "../styles/pages/login_register.module.scss";
+import animate from "../styles/animation/animation.module.css";
+import { useCookies } from "react-cookie";
 
 const Login = () => {
+  const [cookie, setCookie] = useCookies(["token"]);
 
   // definition of variables
   const [password, setPassword] = useState("");
@@ -21,7 +21,7 @@ const Login = () => {
     e.preventDefault();
 
     // API connection
-    const login = await fetch("http://localhost:3333/users/login", {
+    const login = await fetch("http://localhost:3333/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -31,35 +31,34 @@ const Login = () => {
         password: password,
       }),
     });
-    console.log(login)
 
     // login sucess or not
     if (login.status === 200) {
-
       // Get token
       const { token } = await login.json();
-      console.log(token)
-      localStorage.setItem('token', token);
+      setCookie("token", token, {
+        path: "/",
+        maxAge: 60 * 60 * 24, // Expires after 24hr
+        sameSite: true,
+      });
 
-      return router.push('/');
+      return router.push("/");
     } else {
-      window.alert("Login Incorreto!")
+      window.alert("Login Incorreto!");
     }
   };
 
   return (
-    <Layout>
-
-      <div className={`${styles.rowContainer} ${animate.up}`}>
-
+    <>
+      <div className={styles.rowContainer}>
         <BannerWelcome />
 
-        <form onSubmit={submit} className={styles.form}>
-
+        <form onSubmit={submit} className={`${styles.form} ${animate.upSlow}`}>
           <div className={styles.legend}>
             <h1>Login</h1>
-            <p>Caso não tenha uma conta...
-                <a href='/Register'> Registre-se</a>
+            <p>
+              Caso não tenha uma conta...
+              <a href="/Register"> Registre-se</a>
             </p>
           </div>
 
@@ -83,21 +82,18 @@ const Login = () => {
           </div>
 
           <div className={styles.forgotPassword}>
-            <a href='#'>Esqueceu a senha?</a>
+            <a href="#">Esqueceu a senha?</a>
           </div>
 
           <button type="submit">
             <img src="img/icons/login.png" />
-              Login
+            Login
           </button>
 
           <OtherLoginOptions />
         </form>
-
-
       </div>
-
-    </Layout>
+    </>
   );
 };
 

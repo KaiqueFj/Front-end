@@ -1,10 +1,10 @@
 import React, { SyntheticEvent } from "react";
-import Layout from "../Layout/Layout";
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import styles from '../styles/pages/Register.module.css';
-import BannerWelcome from "../Components/bannerWelcome";
+import styles from '../styles/pages/login_register.module.scss';
+import BannerWelcome from "../Components/bannerWelcome/bannerWelcome";
 import animate from '../styles/animation/animation.module.css';
+import Head from "next/head";
 
 const Register = () => {
 
@@ -18,35 +18,39 @@ const Register = () => {
 
     // submit function
     const submit = async (e: SyntheticEvent) => {
+        try {
+            e.preventDefault();
 
-        e.preventDefault();
+            // API connection
+            const register = await fetch('http://localhost:3333/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    username: name,
+                    email: email,
+                    password: password
+                })
+            });
 
-        // API connection
-        const register = await fetch('http://localhost:3333/users/register', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                username: name,
-                email: email,
-                password: password
-            })
-        });
+            return router.push('/Login')
 
-        const data = await register.json();
-        const dataConvert = JSON.stringify(data);
-        console.log(dataConvert)
-
-        return router.push('/Login')
+        } catch (error) {
+            return console.log(error)
+        }
     }
 
     return (
-        <Layout>
-            <div className={`${animate.up} ${styles.rowContainer}`}>
+        <>
+            <Head>
+                <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+            </Head>
+
+            <div className={styles.rowContainer}>
 
                 <BannerWelcome />
 
 
-                <form onSubmit={submit} className={styles.form}>
+                <form onSubmit={submit} className={`${styles.form} ${animate.upSlow}`}>
 
                     <div className={styles.legend}>
                         <h1>Registre-se</h1>
@@ -86,12 +90,12 @@ const Register = () => {
 
                     <button type="submit">
                         <img src="img/icons/login.png" />
-                    Registrar-se
-                </button>
+                        Registrar-se
+                    </button>
 
                 </form>
             </div>
-        </Layout>
+        </>
 
     );
 };

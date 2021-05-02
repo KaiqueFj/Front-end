@@ -1,12 +1,10 @@
-import React, { SyntheticEvent, useState } from "react";
-import Layout from "../Layout/Layout";
-import titlePage from '../styles/Components/titlePage.module.css';
-import styles from '../styles/pages/addMedicine.module.css';
-import animate from '../styles/animation/animation.module.css';
 import Head from "next/head";
-import Header from "../Components/header";
-import moment from "moment";
 import { useRouter } from "next/router";
+import React, { SyntheticEvent, useState } from "react";
+import Header from "../Components/Header/header";
+import animate from '../styles/animation/animation.module.css';
+import styles from '../styles/pages/addMedicine.module.scss';
+import { parseCookies } from "../utils/parseCookies";
 
 
 const Medicine = () => {
@@ -24,41 +22,38 @@ const Medicine = () => {
     }
 
     const time = []
-    function getTime(){
+    function getTime() {
         const container = document.querySelector(".timeDiv").querySelectorAll('input');
-        for (var i =0; i < container.length ; i++){
+        for (var i = 0; i < container.length; i++) {
             time.push(container[i].value)
         }
     }
-    
 
-    const submit = async (e: SyntheticEvent) => {
+
+    const submit = async (e: SyntheticEvent, req) => {
         e.preventDefault();
 
         //Get Hours
         getTime();
-        console.log(time)
 
-        // Get token in LocalStorage
-        const token = localStorage.getItem('token')
+        // Get token in cookies
+        const { token } = parseCookies(req)
 
         // API connection
-        const addMedicine = await fetch('http://localhost:3333/create/medicine', {
+        const addMedicine = await fetch('http://localhost:3333/registerMedicine', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify({
-                medicine: name,
-                dateI: initialDate,
-                dateF: finalDate,
+                name: name,
+                initialDate: initialDate,
+                finalDate: finalDate,
                 time: time.toString(),
                 // color: color
             })
         });
-
-        console.log(initialDate)
 
 
         const data = addMedicine;
@@ -66,9 +61,9 @@ const Medicine = () => {
 
             // Get token
             return router.push('/Medicines');
-          } else {
+        } else {
             window.alert("Não foi possível adicionar este medicamento... tente novamente!")
-          }
+        }
     }
 
 
@@ -78,12 +73,12 @@ const Medicine = () => {
                 <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css" />
             </Head>
 
-            <Layout>
+            <div className='container'>
                 <div className='containerBackground'>
                     <Header />
 
                     <div className={styles.container}>
-                        <div className={titlePage.titlePage}>
+                        <div className='titlePage'>
                             <img src='/img/icons/medicine.png' />
                         Adicionar Remédio
                     </div>
@@ -140,7 +135,7 @@ const Medicine = () => {
                         </form>
                     </div>
                 </div>
-            </Layout >
+            </div >
         </>
     );
 };

@@ -1,28 +1,27 @@
+import { route } from 'next/dist/next-server/server/router';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
-import header from '../styles/Components/header.module.css';
+import header from '../Components/Header/styles.module.scss';
 import NotLogged from '../Components/NotLogged/notLogged';
-import Layout from '../Layout/Layout';
-import styles from '../styles/pages/index.module.css';
 import animate from '../styles/animation/animation.module.css';
+import styles from '../styles/pages/index.module.scss';
+import { parseCookies } from '../utils/parseCookies';
 
-
-export default function Home() {
+export default function Home({ req }) {
 
   // variables
-  const [areLogged, setAreLogged] = useState(false);
-  const [id, setId] = useState("");
   const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
+  const [isLogged, setIsLogged] = useState(false);
 
   async function teste() {
 
+    // Get token in cookies
+    const { token } = parseCookies(req)
+
     try {
 
-      // Get token in LocalStorage
-      const token = localStorage.getItem('token')
-
       // API connection
-      const indexLogged = await fetch('http://localhost:3333/users/home', {
+      const response = await fetch('http://localhost:3333/index', {
         method: "GET",
         headers: {
           'Content-Type': 'application/json',
@@ -31,16 +30,13 @@ export default function Home() {
       });
 
       // Get JSON information and save in variables line (7-9)
-      const indexInformationJSON = await indexLogged.json();
+      const { username } = await response.json();
+      setUsername(username)
 
-      setId(indexInformationJSON.id);
-      setUsername(indexInformationJSON.username);
-      setEmail(indexInformationJSON.email);
-
-      return setAreLogged(true);
+      return setIsLogged(true)
 
     } catch {
-      setAreLogged(false)
+      return;
     }
 
   }
@@ -49,18 +45,17 @@ export default function Home() {
     localStorage.clear()
     document.location.reload(true);
   }
-console.log(id)
-  teste()
 
+  teste()
   return (
-    <Layout>
-      {areLogged ? (
+    <>
+      {isLogged ? (<div className='container'>
         <div className='containerBackground'>
 
           <div className={`${header.container}`}>
             <div>
               <img src='/img/teste.jpg' />
-              <h3>Dona Lurdes</h3>
+              <h3>{username}</h3>
             </div>
           </div>
 
@@ -85,7 +80,7 @@ console.log(id)
             </div>
 
             <div className={`${animate.up} ${styles.menuItem}`}>
-            <a href="/Consulta">
+              <a href="Appointment">
                 <div>
                   <img src='img/icons/consultas.png' />
                   Consultas
@@ -94,7 +89,7 @@ console.log(id)
             </div>
 
             <div className={`${animate.upSlow} ${styles.menuItem}`}>
-              <a href="#">
+              <a href="Recipes">
                 <div>
                   <img src='img/icons/recipe.png' />
                   Receitas
@@ -103,7 +98,7 @@ console.log(id)
             </div>
 
             <div className={`${animate.upSlow} ${styles.menuItem}`}>
-              <a href="#">
+              <a href="FirstAid">
                 <div>
                   <img src='img/icons/firstAid.png' />
                   Socorros
@@ -112,7 +107,7 @@ console.log(id)
             </div>
 
             <div className={`${animate.upSlow} ${styles.menuItem}`}>
-              <a href="#">
+              <a href="Help">
                 <div>
                   <img src='img/icons/help.png' />
                   Ajuda
@@ -122,12 +117,11 @@ console.log(id)
 
           </div>
         </div>
-
+      </div>
+      
       ) : (
         <NotLogged />
       )}
-
-
-    </Layout>
+    </>
   )
 }

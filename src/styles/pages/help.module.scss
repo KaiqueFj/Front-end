@@ -1,0 +1,56 @@
+.container {
+    margin-top: 2.5rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--grayGradient);
+    width: clamp(40rem, 60vw, 1100px);
+    height: clamp(22rem, 30vw, 550px);
+    border-radius: 15px;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.25);
+}
+
+.helpItems {
+    display: grid;
+    grid-template-areas:
+        "li li"
+        "li li"
+        "li li"
+        "li li";
+    grid-gap: clamp(0.5rem, 1vw, 1rem);
+
+
+    a:last-child{
+        div{
+            color: var(--greenBlue);
+        }
+    }
+
+    a {
+        cursor: pointer;
+        transition: transform 0.2s, filter 0.2s;
+
+        &:hover {
+            transform: scale(1.01);
+            filter: brightness(0.8);
+        }
+
+        div {
+            width: clamp(14rem, 22vw, 25rem);
+            height: clamp(3rem,5vw, 5rem);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: clamp(1rem, 1.2vw, 1.3rem);
+            font-weight: 700;
+            color: #fff;
+
+            border-radius: 1rem;
+            background: var(--darkPurple);
+        }
+    }
+}
