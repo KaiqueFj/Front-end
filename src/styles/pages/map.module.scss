@@ -1,48 +1,32 @@
 .main {
-  
+  .my-map {
+    width: 100vw;
+  }
 
-    .marker {
-      background-image: url("/public/img/hospitals/maphospital.png");
+  .map {
+    width: 100vw;
+    height: 100vh;
+
+    #marker {
+      background-image: url('https://docs.mapbox.com/mapbox-gl-js/assets/washington-monument.jpg');
       background-size: cover;
       width: 50px;
       height: 50px;
       border-radius: 50%;
       cursor: pointer;
-    }
+      }
+  }
 
-    .mapboxgl-popup {
-      max-width: 200px;
-    }
+  .mapboxgl-popup {
+    max-width: 200px;
+  }
 
-    .mapboxgl-popup-content {
-      text-align: center;
-      font-family: "Open Sans", sans-serif;
-    }
+  .mapboxgl-popup-content {
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+  }
 
-    h4 {
-      color: red;
-    }
-  
-}
-
-
-.my-map{
-  width:100vw;
-
-
- 
-}
-
-.map {
-  width: 100vw;
-  height: 100vh;
-
-  .marker {
-    background-image: url("/public/img/hospitals/maphospital.PNG");
-    background-size: cover;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
+  h4 {
+    color: red;
   }
 }

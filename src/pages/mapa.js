@@ -81,9 +81,6 @@ class Mapp extends React.Component {
             style: "mapbox://styles/mapbox/streets-v11",
             center: [-46.791957, -23.625862],
             zoom: 12
-
-
-
         })
 
         //nav Control
@@ -99,11 +96,16 @@ class Mapp extends React.Component {
                 trackUserLocation: true
             })
         );
-<div id= "marker"className={styles.marker}>
 
-   
+        map.addControl(
+            new MapboxDirections({
+            accessToken: mapboxgl.accessToken
+            }),
+            'top-left'
+            );
+        <div id="marker" className={styles.marker}/>
+      
 
-</div>
 
         const el = document.createElement('div');
         el.className = 'marker';
@@ -117,27 +119,24 @@ class Mapp extends React.Component {
         data.forEach((location) => {
             var marker = new mapboxgl.Marker()
                 .setLngLat(location.coordinates)
-                .setPopup(new mapboxgl.Popup({ offset: 25})
-                .setHTML("<h4 id='teste' >" + location.location + "</h4>" + location.city + "<br>" + location.state ))
+                .setPopup(new mapboxgl.Popup({ offset: 25 })
+                    .setHTML("<h4 id='teste' >" + location.location + "</h4>" + location.city + "<br>" + location.state))
                 .addTo(map);
 
             console.log(marker.getPopup()); // return the popup instance
             console.log(location)
-
-
-
         })
     }
+
 
 
     render() {
 
         return (
-            <div>
-                <main className={styles.main}>
-                    <div id="my-map" className={styles.map} />
-                </main>
-            </div>
+
+            <main className={styles.main}>
+                <div id="my-map" className={styles.map} />
+            </main>
         )
     }
 }

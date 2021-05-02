@@ -40,7 +40,7 @@ const Medicine = () => {
         const { token } = parseCookies(req)
 
         // API connection
-        const addMedicine = await fetch('http://localhost:3333/create/medicine', {
+        const addMedicine = await fetch('http://localhost:3333/registerMedicine', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
