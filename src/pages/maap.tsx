@@ -1,11 +1,6 @@
 import { useEffect } from "react";
 import Maap from "./mapa";
 import Head from "next/Head";
-import { useRouter } from "next/router";
-import styles from '../styles/pages/map.module.scss'
-
-
-import mapboxgl from "mapbox-gl";
 
 function App() {
   // useEffect(() => {

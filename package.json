@@ -28,6 +28,7 @@
     "next": "10.0.8",
     "props": "^0.3.0",
     "react": "17.0.1",
+    "react-cookie": "^4.0.3",
     "react-dom": "17.0.1",
     "react-leaflet": "^3.1.0",
     "react-mapbox-gl": "^5.1.1",
