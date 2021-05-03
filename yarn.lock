@@ -822,6 +822,11 @@ cookie@^0.4.0, cookie@^0.4.1:
   resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.4.1.tgz#afd713fe26ebd21ba95ceb61f9a8116e50a537d1"
   integrity sha512-ZwrFkGJxUR3EIoXtO+yVE69Eb7KlixbaeAWfBQB9vVsNn/o+Yw69gBWSSDK825hQNdN+wF8zELf3dFNl/kxkUA==
 
+coordis@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/coordis/-/coordis-1.0.0.tgz#b478ca67aba1d0d87299f6f4aa722273e059139e"
+  integrity sha512-Kid5P94BC0paFjrKmpWAb+3r/FDVLsjd2ZMeejoJQbPNW7mukH5+tC9XAP3gaLndyOc5OQlmL5PEajMgoKlBKg==
+
 core-js@^2.4.0, core-js@^2.5.0:
   version "2.6.12"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.12.tgz#d9333dfa7b065e347cc5682219d6f690859cc2ec"

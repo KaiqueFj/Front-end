@@ -1,5 +1,4 @@
 import { route } from 'next/dist/next-server/server/router';
-import { useRouter } from 'next/router';
 import { useState } from 'react';
 import header from '../Components/Header/styles.module.scss';
 import NotLogged from '../Components/NotLogged/notLogged';

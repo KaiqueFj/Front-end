@@ -1,9 +1,7 @@
 import React from 'react';
-import Head from 'next'
-import ReactDOM from 'react-dom';
 import mapboxgl from 'mapbox-gl';
 import styles from '../styles/pages/map.module.scss'
-
+import { milesToKilometers } from 'coordis';
 mapboxgl.accessToken =
     "pk.eyJ1Ijoia2FpcXVlZmoiLCJhIjoiY2tua2YwOXhyMDh4ZzJ3bnY2ZjdlN2IzZSJ9.97C392BQwdQRtRqvl_-YPw";
 
@@ -85,7 +83,7 @@ class Mapp extends React.Component {
 
         //nav Control
         var nav = new mapboxgl.NavigationControl();
-        map.addControl(nav, 'top-left');
+        map.addControl(nav, 'top-right');
 
         //locate the user by location
         map.addControl(
@@ -97,14 +95,24 @@ class Mapp extends React.Component {
             })
         );
 
+        //give the directions for destination of the user
+
         map.addControl(
             new MapboxDirections({
-            accessToken: mapboxgl.accessToken
+                accessToken: mapboxgl.accessToken,
+
+                unit: 'metric',
+                language: 'pt-BR',
+                steps: true,
+                geocoder: {
+                    language: 'pt-BR'
+                },
             }),
-            'top-left'
-            );
-        <div id="marker" className={styles.marker}/>
-      
+            'top-left',
+
+        );
+        <div id="marker" className={styles.marker} />
+
 
 
         const el = document.createElement('div');
