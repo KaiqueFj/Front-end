@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
-import Layout from "../Layout/Layout";
-import titlePage from "../styles/Components/titlePage.module.css";
-import styles from "../styles/pages/Medicines.module.css";
-import animate from "../styles/animation/animation.module.css";
+import { useRouter } from "next/router";
+import React from "react";
 import Header from "../Components/Header/header";
 import NoMedicines from "../Components/NoMedicine/NoMedicines";
-import moment from "moment";
-import { useRouter } from "next/router";
+import { useApp } from "../Contexts/UserContext";
+import animate from "../styles/animation/animation.module.css";
+import styles from "../styles/pages/Medicines.module.scss";
+import { concatWithWithoutStatus } from "../utils/concatWithWithoutStatus";
+import { medicinesOnDay } from "../utils/medicinesOnDay";
+import { parseCookies } from "../utils/parseCookies";
 
 const Medicine = () => {
   //Variables

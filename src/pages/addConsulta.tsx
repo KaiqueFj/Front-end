@@ -1,7 +1,7 @@
 import React, { SyntheticEvent, useState } from "react";
 import Layout from "../Layout/Layout";
-import titlePage from "../styles/Components/titlePage.module.css";
-import styles from "../styles/pages/addMedicine.module.css";
+import titlePage from "../styles/Components/titlePage.module.scss";
+import styles from "../styles/pages/addMedicine.module.scss";
 import animate from "../styles/animation/animation.module.css";
 import Head from "next/head";
 import Header from "../Components/Header/header";

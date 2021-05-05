@@ -5,6 +5,11 @@ import styles from '../styles/pages/login_register.module.scss';
 import BannerWelcome from "../Components/bannerWelcome/bannerWelcome";
 import animate from '../styles/animation/animation.module.css';
 import Head from "next/head";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css'
+
+
+
 
 const Register = () => {
 
@@ -22,7 +27,7 @@ const Register = () => {
             e.preventDefault();
 
             // API connection
-            const register = await fetch('http://localhost:3333/register', {
+            const register = await fetch('http://localhost:3333/users/register', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -32,10 +37,19 @@ const Register = () => {
                 })
             });
 
+            toast.success('Registro feito com sucesso',{
+                position: toast.POSITION.TOP_CENTER,
+                autoClose: 8000,
+            });
             return router.push('/Login')
 
         } catch (error) {
-            return console.log(error)
+            
+
+            return toast.error('falha no registro',{
+                position: toast.POSITION.TOP_CENTER,
+                autoClose: 8000
+            })
         }
     }
 

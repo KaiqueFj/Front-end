@@ -1,21 +1,8 @@
 import { useEffect } from "react";
-import Maap from "./mapa";
+import Mapp from "./mapa";
 import Head from "next/Head";
 
-function App() {
-  // useEffect(() => {
-
-  //   function loadStyle(url) {
-  //     let index  = window.document.getElementsByTagName("link")[0];
-  //     let link = window.document.createElement("link");
-  //     link.href = url;
-  //     link.rel = 'stylesheet';
-  //     index.parentNode.insertBefore(link, index);
-  //   }
-  //   loadStyle("https://api.mapbox.com/mapbox-gl-js/v1.3.0/mapbox-gl.css")
-
-  // }, [])
-
+function Map() {
   return (
     <>
       <Head>
@@ -36,8 +23,6 @@ function App() {
         <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
 
-
-
         <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
         <link
           rel="stylesheet"
@@ -46,11 +31,9 @@ function App() {
         ></link>
       </Head>
 
-      <div>
-        <Maap />
-      </div>
+      <Mapp />
     </>
   );
 }
 
-export default App;
+export default Map;

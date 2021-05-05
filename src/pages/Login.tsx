@@ -7,6 +7,8 @@ import OtherLoginOptions from "../Components/OtherLoginOptions/otherLoginOptions
 import styles from "../styles/pages/login_register.module.scss";
 import animate from "../styles/animation/animation.module.css";
 import { useCookies } from "react-cookie";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css'
 
 const Login = () => {
   const [cookie, setCookie] = useCookies(["token"]);
@@ -21,7 +23,7 @@ const Login = () => {
     e.preventDefault();
 
     // API connection
-    const login = await fetch("http://localhost:3333/login", {
+    const login = await fetch("http://localhost:3333/users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -44,7 +46,10 @@ const Login = () => {
 
       return router.push("/");
     } else {
-      window.alert("Login Incorreto!");
+      return toast.error('falha no registro',{
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 8000
+    })
     }
   };
 
