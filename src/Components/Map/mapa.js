@@ -1,169 +1,13 @@
 import React, { useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import styles from './styles.module.scss'
+import { parseCookies } from '../../utils/parseCookies';
+
 mapboxgl.accessToken =
-"pk.eyJ1Ijoia2FpcXVlZmoiLCJhIjoiY2tua2YwOXhyMDh4ZzJ3bnY2ZjdlN2IzZSJ9.97C392BQwdQRtRqvl_-YPw";
-
-const [date.setDate] = useState([])
-
-
-
-
-// Sample data 
-const data = [
-    {
-        "location": "Posto de saude Santa helena",
-        "city": "Taboão da Serra",
-        "state": "São Paulo",
-        "coordinates": [-46.791957, -23.625862],
-        "image": "/img/hospitals/maphospital.png"
-    },
-    // {
-    //     "location": "Hospital Family",
-    //     "city": "Taboão da Serra",
-    //     "state": "São paulo",
-    //     "coordinates": [-46.750833, -23.605634],
-    //     "image": "/img/hospitals/maphospital.png"
-    // },
-    // {
-    //     "location": "Hospital Geral de Pirajussara",
-    //     "city": "Taboão da Serra",
-    //     "state": "São Paulo",
-    //     "coordinates": [-46.8198524, -23.6424766],
-    // },
-    // {
-    //     "location": "Pronto Socorro Infantil Taboão da Serra",
-    //     "city": "Taboão da Serra",
-    //     "state": "São Paulo",
-    //     "coordinates": [-46.8198524, -23.6424766],
-    // },
-    // {
-    //     "location": "Posto De Saúde São Judas ",
-    //     "city": "Taboão da Serra",
-    //     "state": "São Paulo",
-    //     "coordinates": [-46.8083511, -23.6382307],
-    // },
-    // {
-    //     "location": "Centro de Atenção Psicossocial",
-    //     "city": "Taboão da Serra",
-    //     "state": "São Paulo",
-    //     "coordinates": [-23.6365009, -46.8061195],
-    // },
-    // {
-    //     "location": "Hospital Antena",
-    //     "city": "Taboão da Serra",
-    //     "state": "São Paulo",
-    //     "coordinates": [-23.6311539, -46.8092094],
-    // },
-
-    // {
-    //     "location": "Posto de saúde",
-    //     "city": "Taboão da Serra",
-    //     "state": "São Paulo",
-    //     "coordinates": [-23.6200661, -46.7746196],
-    // },
-    // {
-    //     "location": "UBS Dr. Akira Tada",
-    //     "city": "Taboão da Serra",
-    //     "state": "São Paulo",
-    //     "coordinates": [-23.6286376, -46.7894683],
-    // },
-    // {
-    //     "location": "Centro Médico Taboão da Serra",
-    //     "city": "Taboão da Serra",
-    //     "state": "São Paulo",
-    //     "coordinates": [-46.7949615, -23.6316257],
-    // },
-    // {
-    //     "location": "UBS Maria José",
-    //     "city": "Taboão da Serra",
-    //     "state": "São Paulo",
-    //     "coordinates": [-46.7599426, -23.6126738],
-    // },
-    // {
-    //     "location": "Centro Clínico Taboão da Serra",
-    //     "city": "Taboão da Serra",
-    //     "state": "São Paulo",
-    //     "coordinates": [-23.6121626, -46.7621312],
-    // },
-
-    // {
-    //     "location": " Clínica Médica Saúde Brasil",
-    //     "city": "Taboão da Serra",
-    //     "state": "São Paulo",
-    //     "coordinates": [-23.6125951, -46.7616592],
-    // },
-    // {
-    //     "location": " Policlínica Taboão",
-    //     "city": "Taboão da Serra",
-    //     "state": "São Paulo",
-    //     "coordinates": [-46.7611871, -23.6128704],
-    // },
-    // {
-    //     "location": "DaVita Serviços Médicos",
-    //     "city": "Taboão da Serra",
-    //     "state": "São Paulo",
-    //     "coordinates": [-46.7611871, -23.612949,],
-    // },
-    // {
-    //     "location": "Hospital e Maternidade Taboão da Serra",
-    //     "city": "Taboão da Serra",
-    //     "state": "São Paulo",
-    //     "coordinates": [-46.7526255, -23.6067458],
-    // },
-    // {
-    //     "location": "Semear Gestão de serviços Hospitalares",
-    //     "city": "Taboão da Serra",
-    //     "state": "São Paulo",
-    //     "coordinates": [-23.6067458, -46.7526255],
-    // },
-
-    // {
-    //     "location": "AME Taboão da Serra",
-    //     "city": "Taboão da Serra",
-    //     "state": "São Paulo",
-    //     "coordinates": [-46.769842, -23.619404],
-    //     "image": "/img/hospitals/maphospital.png"
-    // },
-
-
-    // {
-    //     "location": "Greenline (Pronto Socorros) Taboão",
-    //     "city": "Taboão da Serra",
-    //     "state": "São paulo",
-    //     "coordinates": [-46.767501, -23.619367],
-    //     "image": "/img/hospitals/maphospital.png"
-    // },
-
-
-    // {
-    //     "location": "UBS Santa Cecilia",
-    //     "city": "Taboão da Serra",
-    //     "state": "São paulo",
-    //     "coordinates": [-46.787187, -23.623175],
-    //     "image": "/img/hospitals/maphospital.png"
-    // },
-    // {
-    //     "location": "Hospital Antena",
-    //     "city": "Taboão da Serra",
-    //     "state": "São paulo",
-    //     "coordinates": [-46.793129, -23.628793],
-    //     "image": "/img/hospitals/maphospital.png"
-    // },
-    // {
-    //     "location": "UBS Jd Record",
-    //     "city": "Taboão da Serra",
-    //     "state": "São paulo",
-    //     "coordinates": [-46.791969, -23.625863],
-    //     "image": "/img/hospitals/maphospital.png"
-    // },
-]
-
+    "pk.eyJ1Ijoia2FpcXVlZmoiLCJhIjoiY2tua2YwOXhyMDh4ZzJ3bnY2ZjdlN2IzZSJ9.97C392BQwdQRtRqvl_-YPw";
 
 class Mapp extends React.Component {
 
-
-    // Set up states for updating map 
     constructor(props) {
         super(props);
         this.state = {
@@ -174,7 +18,39 @@ class Mapp extends React.Component {
     }
 
     // Create map and lay over markers
-    componentDidMount() {
+    async componentDidMount(req) {
+
+        //get token on cookies
+        const { token } = parseCookies(req);
+
+        // API connection
+        const response = await fetch('http://localhost:3333/hospital/show', {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+        });
+
+
+        const responseJSON = await response.json();
+
+        // All Medicines
+        const array = [];
+        for (var i = 0; i < responseJSON.length; i++) {
+
+            // Data to show
+            array.push({
+                'username': responseJSON[i].username,
+                'cidade': responseJSON[i].cidade,
+                'estado': responseJSON[i].estado,
+                "coordinates": [responseJSON[i].latitude, responseJSON[i].longitude],
+                "image": responseJSON[i].image,
+            })
+        }
+
+        console.log(array[0].image)
+
         const map = new mapboxgl.Map({
             container: "my-map",
             style: "mapbox://styles/mapbox/streets-v11",
@@ -225,7 +101,7 @@ class Mapp extends React.Component {
         }
 
         //put the markers in the map
-        data.forEach((location) => {
+        array.forEach((location) => {
             var marker = new mapboxgl.Marker({
                 color: 'var(--purple)',
                 background: 'none',
@@ -235,8 +111,8 @@ class Mapp extends React.Component {
                 .setPopup(new mapboxgl.Popup({ offset: 25 })
                     .setHTML(
                         "<div id='popup'><a href='#'>" +
-                        "<img src='https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/saude/Hospital%20Municipal%20da%20Brasil%C3%A2ndia(1).jpg'/><div><p>Ver Mais</p></div></a><div>" +
-                        "<h4 id='teste' >" + location.location + "</h4>" + location.city + " | " + location.state + "</div><a href='#' class='button'>" +
+                        "<img src='" + location.image + "'/><div><p>Ver Mais</p></div></a><div>" +
+                        "<h4 id='teste' >" + location.username + "</h4>" + location.cidade + " | " + location.estado + "</div><a href='#' class='button'>" +
                         "<button><img src='img/icons/rigthWhite.png'/></button></a></div>"))
                 .addTo(map);
         })
@@ -244,8 +120,8 @@ class Mapp extends React.Component {
 
 
     render() {
-        return (
 
+        return (
             <div id="my-map" className={styles.map}>
                 <button className={styles.button}>Como Chegar?</button>
 
@@ -256,7 +132,6 @@ class Mapp extends React.Component {
         )
     }
 }
-
 
 
 export default Mapp;
