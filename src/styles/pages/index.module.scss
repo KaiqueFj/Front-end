@@ -1,3 +1,102 @@
+.header {
+    width: 100%;
+    max-width: 1920px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    position: absolute;
+    top: 1rem;
+    border-radius: 2rem;
+    z-index: 1000;
+
+    .textProfile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        p {
+            font-size: clamp(1rem, 1.3vw, 1.3rem);
+            font-weight: 500;
+            color: var(--greenBlue);
+        }
+
+        h3 {
+            font-size: clamp(1.3rem, 1.5vw, 1.5rem);
+            font-weight: 700;
+            color: #fff;
+        }
+    }
+
+    img {
+        border-radius: 50%;
+        width: clamp(4rem, 5vw, 6rem);
+        height: clamp(4rem, 5vw, 6rem);
+        filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.658));
+    }
+
+    .headerMenu {
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        align-items: left;
+        margin: 0 auto;
+        margin-top: 5rem;
+        color: #fff;
+        display: none;
+
+        h3 {
+            margin-top: 1rem;
+            font-size: clamp(1.2rem, 1.3vw, 1.5rem);
+            font-weight: 600;
+            transition: color 0.2s;
+            cursor: pointer;
+
+            &:hover {
+                color: var(--greenBlue);
+            }
+        }
+
+        hr {
+            margin-top: 0.3rem;
+            width: 100%;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 2rem;
+            border: 0;
+            border-radius: 1rem;
+            background: var(--purple);
+            font-size: clamp(1.2rem, 1.3vw, 1.5rem);
+            font-weight: 500;
+            color: #fff;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem;
+
+            transition: filter 0.2s;
+
+            &:hover {
+                filter: brightness(0.8);
+            }
+
+            img {
+                border-radius: 0;
+                font-size: 0;
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+    }
+}
+
 .menuContainer {
     width: clamp(35rem, 55vw, 975px);
     height: clamp(20rem, 30vw, 40rem);

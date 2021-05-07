@@ -1,11 +1,12 @@
-import Head from "next/head";
+import Head from "next/Head";
 import { useRouter } from "next/router";
 import React, { SyntheticEvent, useState } from "react";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import Header from "../Components/Header/header";
 import animate from '../styles/animation/animation.module.css';
 import styles from '../styles/pages/addMedicine.module.scss';
 import { parseCookies } from "../utils/parseCookies";
-
 
 const Medicine = () => {
     //Variables
@@ -13,7 +14,8 @@ const Medicine = () => {
     const [initialDate, setInitialDate] = useState('');
     const [finalDate, setFinalDate] = useState('');
     const [name, setName] = useState('');
-    const [color, setColor] = useState('');
+
+    toast.configure();
 
     function newTime() {
         const container = document.querySelector(".timeDiv");
@@ -58,11 +60,18 @@ const Medicine = () => {
 
         const data = addMedicine;
         if (data.status === 200) {
+            toast.success("Remédio adicionado com sucesso!", {
+                position: toast.POSITION.TOP_RIGHT,
+                autoClose: 5000,
+            });
 
             // Get token
             return router.push('/Medicines');
         } else {
-            window.alert("Não foi possível adicionar este medicamento... tente novamente!")
+            toast.error("Não foi possível cadastrar este Medicamente, Tente Novamente...", {
+                position: toast.POSITION.TOP_RIGHT,
+                autoClose: false,
+            }); //notifica um erro
         }
     }
 
@@ -72,6 +81,7 @@ const Medicine = () => {
             <Head>
                 <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css" />
             </Head>
+
 
             <div className='container'>
                 <div className='containerBackground'>

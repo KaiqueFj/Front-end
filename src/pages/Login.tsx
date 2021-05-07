@@ -5,13 +5,13 @@ import BannerWelcome from "../Components/bannerWelcome/bannerWelcome";
 import OtherLoginOptions from "../Components/OtherLoginOptions/otherLoginOptions";
 
 import styles from "../styles/pages/login_register.module.scss";
-import animate from "../styles/animation/animation.module.css";
+import animate from '../styles/animation/animation.module.css';
 import { useCookies } from "react-cookie";
 import { toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css'
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
-  const [cookie, setCookie] = useCookies(["token"]);
+  const [cookie, setCookie] = useCookies(["token"])
 
   // definition of variables
   const [password, setPassword] = useState("");
@@ -44,26 +44,32 @@ const Login = () => {
         sameSite: true,
       });
 
-      return router.push("/");
+      toast.success("Login feito com sucesso!", {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 5000,
+      });
+
+      return router.push('/');
     } else {
-      return toast.error('falha no registro',{
-        position: toast.POSITION.TOP_CENTER,
-        autoClose: 8000
-    })
+      toast.error("Email ou senha incorretos, tente novamente...", {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: false,
+      });
     }
   };
 
   return (
     <>
       <div className={styles.rowContainer}>
+
         <BannerWelcome />
 
         <form onSubmit={submit} className={`${styles.form} ${animate.upSlow}`}>
+
           <div className={styles.legend}>
             <h1>Login</h1>
-            <p>
-              Caso não tenha uma conta...
-              <a href="/Register"> Registre-se</a>
+            <p>Caso não tenha uma conta...
+                <a href='/Register'> Registre-se</a>
             </p>
           </div>
 
@@ -87,17 +93,20 @@ const Login = () => {
           </div>
 
           <div className={styles.forgotPassword}>
-            <a href="#">Esqueceu a senha?</a>
+            <a href='#'>Esqueceu a senha?</a>
           </div>
 
           <button type="submit">
             <img src="img/icons/login.png" />
-            Login
+              Login
           </button>
 
           <OtherLoginOptions />
         </form>
+
+
       </div>
+
     </>
   );
 };

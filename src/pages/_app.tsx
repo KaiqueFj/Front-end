@@ -1,4 +1,4 @@
-import { UserProvider } from '../Contexts/UserContext'
+import { UserProvider } from '../Contexts/AppContexts'
 import '../styles/globals.scss';
 
 function MyApp({ Component, pageProps }) {

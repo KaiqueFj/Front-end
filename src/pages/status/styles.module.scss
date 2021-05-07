@@ -1,0 +1,121 @@
+.container {
+    margin-top: 2vw;
+    position: relative;
+    padding-bottom: clamp(2rem, 3vw, 4rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--grayGradient);
+    width: clamp(30rem, 40vw, 800px);
+    height: clamp(20rem, 30vw, 450px);
+    border-radius: 15px;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.25);
+
+    .titlePage {
+        width: clamp(20rem, 35vw, 40rem);
+        position: absolute;
+        top: clamp(-10rem, -5.5vw, -50px);
+        filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.479));
+
+        div {
+            position: relative;
+
+            p {
+                position: absolute;
+                top: 2.5rem;
+                transform: translate(20%, 0);
+
+                width: clamp(18rem, 28vw, 35rem);
+                text-align: center;
+                font-size: clamp(1rem, 3vw, 4rem);
+                font-weight: 700;
+                color: #fff;
+            }
+
+            img {
+                width: clamp(7rem, 12vw, 15rem);
+                height: clamp(7rem, 12vw, 15rem);
+            }
+        }
+    }
+
+    .medicineContainer {
+        margin-top: auto;
+        width: clamp(25rem, 30vw, 35rem);
+        height: clamp(2.5rem, 3.7vw, 55px);
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        padding: clamp(0.8rem, 1.5vw, 20px);
+        background: var(--darkPurple);
+        font-size: clamp(1rem, 1.5vw, 1.6rem);
+        font-weight: 700;
+        border-radius: 15px;
+        box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.25);
+        transition: filter 0.2s;
+        color: #fff;
+        position: relative;
+
+        div:nth-child(2) {
+            background: var(--greenBlue);
+        }
+
+        div:nth-child(3) {
+            background: #f306ea;
+        }
+
+        div:nth-child(4) {
+            background: #2ecd5b;
+        }
+
+        div:nth-child(5) {
+            background: #f37806;
+        }
+
+        p ~ p {
+            overflow: hidden;
+        }
+
+        hr {
+            height: clamp(1.5rem, 2.5vw, 37.5px);
+            border-left: 1px solid;
+            margin-left: clamp(0.5rem, 1vw, 20px);
+            margin-right: clamp(0.5rem, 1vw, 20px);
+        }
+    }
+
+    .buttons {
+        width: clamp(25rem, 30vw, 35rem);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        button {
+            margin-top: 2.5rem;
+            width: 100%;
+            height: clamp(6rem, 5vw, 7rem);
+
+            font-size: clamp(1.5rem, 1.8vw, 2rem);
+            font-weight: 600;
+            color: #fff;
+
+            border: 0;
+            border-radius: 1rem 0 0 1rem;
+            background: var(--red);
+
+            box-shadow: 0px 8px 8px 2px rgba(0, 0, 0, 0.178);
+
+            transition: filter 0.2s;
+
+            & ~ button {
+                background: var(--green);
+                border-radius: 0 1rem 1rem 0;
+            }
+
+            &:hover {
+                filter: brightness(0.8);
+            }
+        }
+    }
+}
