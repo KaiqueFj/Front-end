@@ -45,6 +45,8 @@
         }
     }
 
+   
+
     /* Inputs: name, weight and height */
 
     input[type="text"] {
@@ -127,9 +129,9 @@
 
         &:after {
             display: flex;
-            justify-content: center;
+            justify-content: center;            content: url("/img/icons/check.png");
+
             align-items: center;
-            content: url("/img/icons/check.png");
         }
 
         &:checked {
