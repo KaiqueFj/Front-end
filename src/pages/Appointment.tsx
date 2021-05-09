@@ -3,7 +3,7 @@ import Header from "../Components/Header/header";
 import styles from '../styles/pages/Appointment.module.scss';
 import animate from '../styles/animation/animation.module.css';
 import AppointmentDescription from "../Components/AppointmentDescription/AppointmentDescription";
-import Head from "next/head";
+import Head from "next/Head";
 import AppointmentVideo from "../Components/AppointmentVideo/appointmentVideo";
 import SearchHospitalLocation from "../Components/SearchHospitalLocation/searchHospitalLocation";
 import AppointmentForm from "../Components/AppointmentForm/AppointmentForm";

@@ -73,7 +73,7 @@ const Register = () => {
                         <img src="img/icons/userPurple.png" />
                         <input
                             onChange={e => setName(e.target.value)}
-                            placeholder="Lurdes"
+                            placeholder="Insira seu Nome"
                             required
                         />
                     </div>
@@ -82,7 +82,7 @@ const Register = () => {
                         <img src="img/icons/userPurple.png" />
                         <input
                             onChange={e => setEmail(e.target.value)}
-                            placeholder="lurdes@gmail.com"
+                            placeholder="Insira seu E-mail"
                             required
                         />
                     </div>

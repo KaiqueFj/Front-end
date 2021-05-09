@@ -1,5 +1,8 @@
+import styles from './change.module.scss';
+
 export function profileHover() {
 
+   
     //Get variables
     document.getElementById("headerMenu").style.display = 'block'
     const textProfile = document.getElementById("textProfile");
@@ -30,6 +33,19 @@ export function profileHover() {
 }
 
 export function initialProfile() {
+
+    <div>
+    <input type="checkbox" className={styles.checkbox}></input>
+    <label className={styles.label}>
+        <i className={styles.fasmoon}> </i>
+        <i className={styles.sun}> </i>
+        <div className={styles.ball} ></div>
+    </label>
+
+    <p> Michael jordan brabo 23 lenda</p>
+</div>
+
+
 
     //Get variables
     document.getElementById("headerMenu").style.display = 'none'

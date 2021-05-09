@@ -121,7 +121,7 @@ export async function getServerSideProps({ req }) {
   const { token } = parseCookies(req);
 
   // API connection
-  const response = await fetch('http://localhost:3333/index', {
+  const response = await fetch('http://localhost:3333/users/home', {
     method: "GET",
     headers: {
       'Content-Type': 'application/json',

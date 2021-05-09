@@ -25,5 +25,5 @@
 , "src/pages/map.tsx", "src/Components/map.js"  ],
   "exclude": [
     "node_modules"
-  ]
+  ],
 }

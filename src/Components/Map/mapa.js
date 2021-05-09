@@ -112,7 +112,7 @@ class Mapp extends React.Component {
                     .setHTML(
                         "<div id='popup'><a href='#'>" +
                         "<img src='" + location.image + "'/><div><p>Ver Mais</p></div></a><div>" +
-                        "<h4 id='teste' >" + location.username + "</h4>" + location.cidade + " | " + location.estado + "</div><a href='#' class='button'>" +
+                        "<h4 id='teste' >" + location.username + "</h4>" + location.cidade + " | " + location.estado + "</div><a href='/Hospital' class='button'>" +
                         "<button><img src='img/icons/rigthWhite.png'/></button></a></div>"))
                 .addTo(map);
         })
