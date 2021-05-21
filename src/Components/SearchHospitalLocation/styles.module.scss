@@ -7,7 +7,7 @@
     h3 {
         font-size: clamp(1.7rem, 3vw, 4rem);
         font-weight: 600;
-        color: var(--darkPurple);
+        color: var(--purple);
     }
 
     p {
@@ -15,7 +15,7 @@
         text-align: center;
         font-size: clamp(0.8rem, 1.4vw, 2rem);
         font-weight: 400;
-        color: var(--purple);
+        color: var(--font1);
     }
 
     div {
@@ -38,7 +38,8 @@
             padding: clamp(0.7rem, 1.5vw, 22.5px);
             font-size: clamp(0.8rem, 1vw, 1.3rem);
             font-weight: 500;
-            color: black;
+            color: var(--input);
+            background: var(--secondaryColor);
 
             &::placeholder {
                 color: var(--placeholder);

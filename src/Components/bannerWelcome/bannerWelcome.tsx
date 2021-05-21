@@ -10,7 +10,6 @@ export default function BannerWelcome() {
                      uma simulação de texto da  <br></br>
                     indústria.</p>
             </div>
-
         </div>
     )
 }

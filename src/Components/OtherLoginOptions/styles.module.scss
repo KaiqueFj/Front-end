@@ -1,7 +1,6 @@
 .container {
     margin-top: clamp(1rem, 1.2vw, 18px);
     display: flex;
-    flex-direction: column;
     gap: clamp(0.7rem, 0.7vw, 10px);
     justify-content: center;
     align-items: center;
@@ -27,40 +26,34 @@
 .googleLogin {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    padding-left: 1rem;
-    padding-right: clamp(1rem, 3.2vw, 4rem);
+    justify-content: center;
     align-items: center;
-    border-radius: 10px;
+
+    border-radius: 1rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     height: clamp(3rem, 4vw, 60px);
-    background: var(--google);
-    font-size: clamp(1rem, 1.1vw, 1.3rem);
-    font-weight: 500;
-    color: #969696;
+    background: var(--secondaryColor);
     position: relative;
 
     img {
-        width: clamp(3rem, 4vw, 75px);
-        height: clamp(3rem, 4vw, 75px);
+        width: clamp(3rem, 4vw, 60px);
+        height: clamp(3rem, 4vw, 60px);
     }
 }
 
 .facebookLogin {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-left: 1rem;
-    padding-right: clamp(1rem, 2.5vw, 3rem);
+    justify-content: center;
     align-items: center;
-    border-radius: 10px;
+
+    border-radius: 1rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     height: clamp(3rem, 4vw, 60px);
-    background: var(--facebook);
-    font-size: clamp(1rem, 1.1vw, 1.3rem);
-    font-weight: 500;
-    color: #fff;
+    background: var(--secondaryColor);
 
     img {
-        width: clamp(2rem, 3vw, 50px);
-        height: clamp(2rem, 3vw, 50px);
+        width: clamp(2rem, 3vw, 45px);
+        height: clamp(2rem, 3vw, 45px);
+        border-radius: 50%;
     }
 }

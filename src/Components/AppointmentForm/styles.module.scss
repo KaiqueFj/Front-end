@@ -4,11 +4,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 5;
+    
 
     h3 {
         font-size: clamp(1rem, 3vw, 4rem);
         font-weight: 600;
-        color: var(--darkPurple);
+        color: var(--purple);
     }
 
     p {
@@ -16,7 +18,7 @@
         text-align: center;
         font-size: clamp(0.7rem, 1.3vw, 1.3rem);
         font-weight: 400;
-        color: var(--purple);
+        color: var(--font1);
     }
 
     form {
@@ -30,7 +32,7 @@
         width: clamp(30rem, 40vw, 50rem);
         border-radius: 20px;
         background: var(--verticalGradient);
-        box-shadow: 8px 8px 8px 2px rgba(0, 0, 0, 0.404);
+        box-shadow: 10px 0px 50px 2px rgba(107, 66, 225, 0.5);
     }
 
     form h4 {
@@ -39,13 +41,10 @@
         font-weight: 600;
         color: #fff;
 
-        &:first-child{
+        &:first-child {
             margin-bottom: clamp(1rem, 2vw, 30px);
-
         }
     }
-
-   
 
     /* Inputs: name, weight and height */
 
@@ -54,15 +53,14 @@
         height: clamp(2.5rem, 3vw, 50px);
         border: 0;
         border-radius: 10px;
-        padding: 0 2rem 0 2rem;
+        padding: 0 clamp(1rem, 1.5vw, 2rem) 0 clamp(1rem, 1.5vw, 2rem);
         font-size: clamp(1rem, 1.3vw, 1.5rem);
 
-        &::placeholder{
+        &::placeholder {
             font-weight: 500;
             color: var(--placeholder);
         }
     }
-
 
     textarea {
         resize: none;
@@ -73,7 +71,7 @@
         font-size: clamp(1rem, 1.2vw, 1.5rem);
         font-weight: 500;
 
-        &::placeholder{
+        &::placeholder {
             color: var(--placeholder);
         }
     }
@@ -129,9 +127,9 @@
 
         &:after {
             display: flex;
-            justify-content: center;            content: url("/img/icons/check.png");
-
+            justify-content: center;
             align-items: center;
+            content: url("/img/icons/check.png");
         }
 
         &:checked {
@@ -153,17 +151,29 @@
     color: var(--placeholder);
     transition: filter 0.2s;
 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    background-image: url("/img/icons/graySeeMore.png");
+    background-size: 1rem;
+    background-repeat: no-repeat;
+    background-position-x: 95%;
+    background-position-y: 50%;
+
     &:hover,
     &:focus {
         filter: brightness(0.85);
     }
 
     option {
-        color: #fff;
-        background: var(--purple);
+        font-size: 1.3rem;
+        font-weight: 500;
+        color: var(--darkPurple);
+        background: #fff;
 
         &:hover {
-            background: var(--darkPurple);
+            filter: brightness(0.8);
         }
     }
 }

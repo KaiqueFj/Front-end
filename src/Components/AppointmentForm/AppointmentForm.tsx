@@ -1,6 +1,25 @@
+import { useEffect } from 'react';
+import { useApp } from '../../Contexts/AppContexts';
 import styles from './styles.module.scss';
 
+
 export default function AppointmentForm() {
+
+    const { userInformation } = useApp();
+    
+    
+    const height = userInformation?.height ? userInformation.height + "m" : '';
+    const weight = userInformation?.weight ? userInformation.weight + "kg" : '';
+
+
+    // // change checkbox if has a chronicDisease
+    // if (userInformation.chronicDisease === null) {
+    //     document.getElementById('no').checked = true;
+    // }
+
+    // if (userInformation.chronicDisease) {
+    //     document.getElementById('yes').checked = true;
+    // }
 
     return (
         <div className={styles.container}>
@@ -12,26 +31,60 @@ export default function AppointmentForm() {
 
             <form>
                 <h4>Informações Pessoais</h4>
-                <input type='text' placeholder='Nome:' required />
+                <input
+                    type='text'
+                    placeholder={`Endereço: ${userInformation?.adress ?? ''}`}
+                    required
+                />
+
                 <div className={styles.PersonalInformationRow}>
-                    <input type='text' placeholder='Idade:' required />
-                    <input type='text' placeholder='Peso:' required />
-                    <input type='text' placeholder='Altura:' required />
+                    <input
+                        type='text'
+                        placeholder={`Idade: ${userInformation?.age ?? ''}`}
+                        required
+                    />
+                    <input
+                        type='text'
+                        placeholder={`Peso: ${weight ?? ''}`}
+                        required
+                    />
+                    <input
+                        type='text'
+                        placeholder={`Altura: ${height ?? ''}`}
+                        required
+                    />
                 </div>
 
                 <h4>Possui alguma doença crônica?</h4>
                 <div className={styles.checkbox}>
                     <div>
-                        <input type='checkbox' name="fooby[2][]" required />
+                        <input
+                            id='yes'
+                            type='checkbox'
+                            name="fooby[2][]"
+                            required
+                        />
                         Sim
                     </div>
 
                     <div>
-                        <input type='checkbox' name="fooby[2][]" required />
+                        <input
+                            id='no'
+                            type='checkbox'
+                            name="fooby[2][]"
+                            required
+                        />
                         Não
                     </div>
                 </div>
-                <textarea placeholder='Detalhe para a gente...' />
+
+                <textarea
+                    id='chronicDisease'
+                    placeholder={
+                        (userInformation?.chronicDisease !== null)
+                        ? `${userInformation?.chronicDisease}`
+                        : `Detalhe para a gente...`}
+                />
 
                 <h4>Qual a especialidade desejada?</h4>
                 <select className={styles.select}>
