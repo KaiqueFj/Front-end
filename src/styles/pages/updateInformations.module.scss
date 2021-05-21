@@ -12,203 +12,202 @@
   position: relative;
 
   .backgroundImage {
-    position: absolute;
-    z-index: 2;
-    width: 100%;
-    height: 100%;
-    background: url("/img/backgrounds/darkBackground.png") no-repeat center
-      center fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
+      position: absolute;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      background: url("/img/backgrounds/darkBackground.png") no-repeat center center fixed;
+      background-repeat: no-repeat;
+      background-size: cover;
   }
 
   .banner {
-    z-index: 2;
-    width: 50%;
-    height: 100vh;
-    background: #14dae4a9;
-    border-radius: 0 2rem 2rem 0;
+      z-index: 2;
+      width: 50%;
+      height: 100vh;
+      background: #14dae4a9;
+      border-radius: 0 2rem 2rem 0;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
 
-    p {
-      width: 80%;
-      text-align: center;
-      font-size: clamp(1.2rem, 1.7vw, 2rem);
-      font-weight: 400;
-      color: #fff;
-      margin-bottom: 2rem;
-    }
+      p {
+          width: 80%;
+          text-align: center;
+          font-size: clamp(1.2rem, 1.7vw, 2rem);
+          font-weight: 400;
+          color: #fff;
+          margin-bottom: 2rem;
+      }
 
-    img {
-      width: 60%;
-      height: 60%;
-      margin-bottom: clamp(1.5rem, 1.7vw, 2rem);
-    }
+      img {
+          width: 60%;
+          height: 60%;
+          margin-bottom: clamp(1.5rem,1.7vw, 2rem);
+      }
   }
 
   .informations {
-    z-index: 2;
-    width: 50%;
-    height: 100vh;
+      z-index: 2;
+      width: 50%;
+      height: 100vh;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
 
-    padding: 3rem;
+      padding: 3rem;
 
-    form {
-      margin-top: clamp(1rem, 2vw, 30px);
-      font-size: clamp(1.3rem, 2vw, 2rem);
-      font-weight: 600;
-      color: #fff;
-
-      &:first-child {
-        margin-bottom: clamp(1rem, 2vw, 30px);
-      }
-
-      input[type="text"] {
-        width: 100%;
-        height: clamp(2.2rem, 3vw, 50px);
-        border: 0;
-        border-radius: 10px;
-        padding-left: clamp(1.3rem, 1.7vw, 2rem);
-        padding-right: clamp(1.3rem, 1.7vw, 2rem);
-        font-size: clamp(1rem, 1.3vw, 1.5rem);
-
-        &::placeholder {
-          font-weight: 500;
-          color: var(--placeholder);
-        }
-      }
-
-      h4 {
-        margin-bottom: 0.2rem;
-        margin-top: clamp(1rem, 1.6vw, 2rem);
-      }
-
-      .adressAndNumber {
-        display: grid;
-        grid-template-areas: "long long" "short short";
-        grid-template-columns: 1fr 1fr;
-        gap: clamp(0.4rem, 0.8vw, 12px);
-
-        input[type="text"]:first-child {
-          grid-area: long;
-        }
-      }
-
-      .PersonalInformation {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: clamp(0.4rem, 0.8vw, 12px);
-      }
-
-      textarea {
-        margin-top: 1rem;
-        width: 100%;
-        resize: none;
-        height: clamp(7rem, 10vw, 11rem);
-        border: 0;
-        border-radius: 15px;
-        padding: clamp(0.5rem, 1vw, 15px);
-        font-size: clamp(1rem, 1.2vw, 1.5rem);
-        font-weight: 500;
-
-        &::placeholder {
-          color: var(--placeholder);
-        }
-      }
-
-      .checkbox {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: clamp(0.5rem, 1vw, 15px);
-
-        div {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          gap: 0.5rem;
-          font-size: clamp(1rem, 1.2vw, 1.5rem);
+      form {
+          margin-top: clamp(1rem, 2vw, 30px);
+          font-size: clamp(1.3rem, 2vw, 2rem);
           font-weight: 600;
           color: #fff;
-        }
 
-        div input {
-          all: unset;
-          width: 1rem;
-          height: 1rem;
-          padding: 0.4rem;
-          background: white;
-          transition: border-radius 0.2s;
-
-          &:after {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transform: translate(10%, -15%);
-            content: url("/img/icons/check.png");
+          &:first-child {
+              margin-bottom: clamp(1rem, 2vw, 30px);
           }
 
-          &:checked {
-            background: var(--darkPurple);
-            border-radius: 4px;
+          input[type="text"] {
+              width: 100%;
+              height: clamp(2.2rem, 3vw, 50px);
+              border: 0;
+              border-radius: 10px;
+              padding-left: clamp(1.3rem, 1.7vw, 2rem);
+              padding-right: clamp(1.3rem, 1.7vw, 2rem);
+              font-size: clamp(1rem, 1.3vw, 1.5rem);
+
+              &::placeholder {
+                  font-weight: 500;
+                  color: var(--placeholder);
+              }
           }
-        }
-      }
 
-      /* selects */
-      .select {
-        height: clamp(2.5rem, 3vw, 50px);
-        border: 0;
-        border-radius: 15px;
-        padding: 0 1.3rem 0 1.3rem;
-        font: 400 1rem "Montserrat", sans-serif;
-        font-size: clamp(1rem, 1.2vw, 1.5rem);
-        font-weight: 500;
-        color: var(--placeholder);
-        transition: filter 0.2s;
-
-        &:hover,
-        &:focus {
-          filter: brightness(0.85);
-        }
-
-        option {
-          color: #fff;
-          background: var(--purple);
-
-          &:hover {
-            background: var(--darkPurple);
+          h4 {
+              margin-bottom: 0.2rem;
+              margin-top: clamp(1rem, 1.6vw, 2rem);
           }
-        }
+
+          .adressAndNumber {
+              display: grid;
+              grid-template-areas: "long long" "short short";
+              grid-template-columns: 1fr 1fr;
+              gap: clamp(0.4rem, 0.8vw, 12px);
+
+              input[type="text"]:first-child {
+                  grid-area: long;
+              }
+          }
+
+          .PersonalInformation {
+              display: grid;
+              grid-template-columns: 1fr 1fr 1fr;
+              gap: clamp(0.4rem, 0.8vw, 12px);
+          }
+
+          textarea {
+              margin-top: 1rem;
+              width: 100%;
+              resize: none;
+              height: clamp(7rem, 10vw, 11rem);
+              border: 0;
+              border-radius: 15px;
+              padding: clamp(0.5rem, 1vw, 15px);
+              font-size: clamp(1rem, 1.2vw, 1.5rem);
+              font-weight: 500;
+
+              &::placeholder {
+                  color: var(--placeholder);
+              }
+          }
+
+          .checkbox {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              gap: clamp(0.5rem, 1vw, 15px);
+
+              div {
+                  display: flex;
+                  flex-direction: row;
+                  align-items: center;
+                  gap: 0.5rem;
+                  font-size: clamp(1rem, 1.2vw, 1.5rem);
+                  font-weight: 600;
+                  color: #fff;
+              }
+
+              div input {
+                  all: unset;
+                  width: 1rem;
+                  height: 1rem;
+                  padding: 0.4rem;
+                  background: white;
+                  transition: border-radius 0.2s;
+
+                  &:after {
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      transform: translate(10%, -15%);
+                      content: url("/img/icons/check.png");
+                  }
+
+                  &:checked {
+                      background: var(--darkPurple);
+                      border-radius: 4px;
+                  }
+              }
+          }
+
+          /* selects */
+          .select {
+              height: clamp(2.5rem, 3vw, 50px);
+              border: 0;
+              border-radius: 15px;
+              padding: 0 1.3rem 0 1.3rem;
+              font: 400 1rem "Montserrat", sans-serif;
+              font-size: clamp(1rem, 1.2vw, 1.5rem);
+              font-weight: 500;
+              color: var(--placeholder);
+              transition: filter 0.2s;
+
+              &:hover,
+              &:focus {
+                  filter: brightness(0.85);
+              }
+
+              option {
+                  color: #fff;
+                  background: var(--purple);
+
+                  &:hover {
+                      background: var(--darkPurple);
+                  }
+              }
+          }
+
+          button{
+              margin-top: clamp(1.2rem,1.5vw, 2rem);
+              width: 100%;
+              height: clamp(3rem, 3.7vw, 4rem);
+
+              border: 0;
+              border-radius: 1rem;
+
+              background: var(--purple);
+              font-size: clamp(1rem, 1.2vw, 1.3rem);
+              font-weight: 500;
+              color: #fff;
+
+              transition: filter 0.2s;
+
+              &:hover{
+                  filter: brightness(0.7);
+              }
+          }
       }
-
-      button {
-        margin-top: clamp(1.2rem, 1.5vw, 2rem);
-        width: 100%;
-        height: clamp(3rem, 3.7vw, 4rem);
-
-        border: 0;
-        border-radius: 1rem;
-
-        background: var(--purple);
-        font-size: clamp(1rem, 1.2vw, 1.3rem);
-        font-weight: 500;
-        color: #fff;
-
-        transition: filter 0.2s;
-
-        &:hover {
-          filter: brightness(0.7);
-        }
-      }
-    }
   }
 }

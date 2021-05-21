@@ -13,7 +13,7 @@
     height: clamp(20rem, 100vh, 1080px);
     margin: 0;
     padding: 0;
-    background: url('/img/backgrounds/background.png');
+    background: url("/img/backgrounds/background.png");
     background-size: 100% 100%;
     display: flex;
     flex-direction: row;
@@ -28,7 +28,7 @@
     width: 100%;
     max-width: 1920px;
     height: clamp(40rem, 55vw, 1080px);
-    background: url('/img/backgrounds/background2.png');
+    background: url("/img/backgrounds/background2.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 110% 100%;
@@ -42,7 +42,7 @@
 .hospitalSearch {
     position: absolute;
     top: clamp(-3rem, -4vw, -5rem);
-    width: clamp(60rem, 70vw, 1485px);
+    width: clamp(57rem, 70vw, 1485px);
     height: clamp(25rem, 35vw, 660px);
     display: flex;
     flex-direction: row;
@@ -56,12 +56,12 @@
     height: clamp(31rem, 38vw, 720px);
 }
 
-.finalImage{
+.finalImage {
     margin-top: clamp(20rem, 25vw, 375px);
     width: 100%;
     max-width: 1920px;
     height: clamp(40rem, 60vw, 900px);
-    background: url('/img/backgrounds/blueBackground.png');
+    background: url("/img/backgrounds/blueBackground.png");
     background-position: left;
     background-repeat: no-repeat;
     background-size: 130% 110%;

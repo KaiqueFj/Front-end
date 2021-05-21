@@ -43,7 +43,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    gap: clamp(0.4rem, 0.8vw, 1.3rem);
+    gap: clamp(0.3rem, 0.7vw, 1.3rem);
     justify-content: center;
     align-items: center;
     padding: 3vw;
@@ -55,7 +55,7 @@
     button {
         width: 100%;
         height: clamp(1.5rem, 4vw, 4rem);
-        margin-top: clamp(1rem, 2vh, 2rem);
+        margin-top: clamp(0.5rem, 1.5vh, 2rem);
         background-image: var(--purpleToGreenBlue);
         font-size: clamp(1.2rem, 1.1vw, 22px);
         font-weight: 700;
@@ -66,11 +66,10 @@
         gap: 0.5rem;
         justify-content: center;
         align-items: center;
-        transition: filter, border-radius, 0.2s;
+        transition: filter 0.2s;
 
         &:hover {
             filter: brightness(0.8);
-            border-radius: 0px;
         }
 
         img {
@@ -89,12 +88,12 @@
         height: 2rem;
         position: absolute;
         left: 1.5rem;
-        top: 1rem;
+        top: clamp(0.7rem, 0.8vw, 1rem);
     }
 
     input {
         width: 100%;
-        height: clamp(60px, 7vh, 85px);
+        height: clamp(50px, 7vh, 85px);
         padding-left: 4.5rem;
         padding-right: 2rem;
         border: 0;
@@ -124,5 +123,48 @@
         &:hover {
             color: var(--greenBlue);
         }
+    }
+}
+
+.imageProfile {
+    margin-top: clamp(0.5rem, 0.8vw, 1rem);
+    width: clamp(8rem, 13vw, 16.5rem);
+    height: clamp(8rem, 13vw, 16.5rem);
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        img {
+            filter: brightness(0.6);
+        }
+
+        button {
+            display: block;
+        }
+    }
+
+    input[type='file']{
+        display: none;
+    }
+
+    img {
+        border-radius: 50%;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        transition: filter 0.3s;
+    }
+
+    button{
+        display: none;
+        width: 80%;
+        position: absolute;
+        background: none;
+        border: 2px solid #fff;
+        color: #fff;
+        font-size: clamp(0.8rem, 1.2vw, 1.5rem);
     }
 }

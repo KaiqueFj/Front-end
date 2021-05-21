@@ -1,0 +1,268 @@
+.container {
+    margin: 0 auto;
+    padding: 2rem 0 15rem 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    max-width: 2800px;
+    background: url("/img/backgrounds/recipeBackground.png") no-repeat center center;
+    background-size: 150% 100%;
+
+    header {
+        margin-top: 13vw;
+        width: 65%;
+        max-width: 1300px;
+
+        display: flex;
+        align-items: center;
+
+        img {
+            width: clamp(7rem, 9vw, 150px);
+            height: clamp(7rem, 9vw, 150px);
+        }
+
+        h3 {
+            margin-left: 1rem;
+            color: #fff;
+            font-size: 4rem;
+            font-weight: 700;
+        }
+
+        div {
+            width: clamp(25vw, 35vw, 700px);
+            height: 4rem;
+            margin-left: auto;
+            border-radius: 2rem;
+            position: relative;
+
+            display: flex;
+            align-items: center;
+
+            input {
+                width: 100%;
+                height: 100%;
+                padding: 0 5rem 0 2rem;
+
+                font-size: 1.3rem;
+                font-weight: 500;
+                color: #000;
+
+                border: 0;
+                border-radius: 1rem;
+
+                &::placeholder {
+                    color: var(--placeholder);
+                }
+
+                &:focus {
+                    box-shadow: 0 0 0 0;
+                    outline: 0;
+                }
+            }
+
+            img {
+                position: absolute;
+                right: 2rem;
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+    }
+
+    main {
+        width: 90%;
+    }
+
+    .recipeContainer {
+        width: 100%;
+        margin-top: 20rem;
+
+        .buttonsContainer {
+            margin: 0 auto;
+            width: 85%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 1rem;
+
+            div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+
+                font-size: 1.3rem;
+                font-weight: 700;
+                color: #fff;
+
+                button {
+                    background: none;
+                    border: 0;
+
+                    transition: transform 0.2s, filter 0.2s;
+
+                    &:hover {
+                        transform: scale(1.03);
+                        filter: brightness(0.8);
+                    }
+
+                    img {
+                        width: 5rem;
+                        height: 5rem;
+                    }
+                }
+            }
+        }
+
+        .instructions {
+            height: 41.5rem;
+            background-color: var(--darkPurple);
+            padding: 2.5rem 2.5rem 2.5rem 5rem;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            border-radius: 1rem;
+            position: relative;
+
+            .recipeBackground {
+                z-index: 1;
+                left: 0;
+                bottom: 0;
+                height: 25rem;
+                border-radius: 1rem;
+                position: absolute;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    opacity: 0.2;
+                    object-fit: cover;
+                }
+            }
+
+            .foodBanner {
+                position: absolute;
+                left: 50%;
+                top: -20rem;
+                transform: translate(-50%, 0);
+
+                width: 32rem;
+                height: 32rem;
+                border-radius: 50%;
+                object-fit: cover;
+
+                box-shadow: 8px 8px 8px 4px rgba(0, 0, 0, 0.384);
+            }
+
+            .preparationMode {
+                z-index: 2;
+                width: 55rem;
+                height: 100%;
+                padding-top: 2vw;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                h3 {
+                    font-size: 2.3rem;
+                    color: var(--greenBlue);
+                }
+
+                div {
+                    display: flex;
+                    justify-self: center;
+                    align-items: center;
+                    gap: 1rem;
+                    margin-top: 2rem;
+
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    color: #fff;
+
+                    img {
+                        width: 3rem;
+                        height: 3rem;
+                    }
+                }
+
+                .description {
+                    height: 20rem;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+
+                    margin-top: 2rem;
+                    padding-right: 3rem;
+                    overflow-y: auto;
+
+                    text-align: justify;
+                    line-height: 2rem;
+                    font-size: 1.2rem;
+                    font-weight: 400;
+                    color: #fff;
+
+                    &::-webkit-scrollbar {
+                        width: 1.2rem;
+                    }
+
+                    &::-webkit-scrollbar-track {
+                        height: 1rem;
+                        background: var(--purple);
+                        border-radius: 1rem;
+                    }
+
+                    &::-webkit-scrollbar-thumb {
+                        border: 4px solid rgba(0, 0, 0, 0);
+                        background-clip: padding-box;
+                        background-color: var(--darkPurple);
+                        border-radius: 1rem;
+                    }
+                }
+            }
+
+            .ingredients {
+                z-index: 2;
+                width: clamp(25vw, 35vw, 700px);
+                height: 100%;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                background: #fff;
+                border-radius: 1rem;
+
+                font-size: 1.5rem;
+                color: var(--purple);
+
+                div {
+                    line-height: 2.3rem;
+
+                    .legend {
+                        display: flex;
+                        align-items: center;
+                        gap: 1rem;
+                        margin-bottom: 1rem;
+
+                        font-size: 1.5rem;
+                        font-weight: 700;
+
+                        img {
+                            width: 2.5rem;
+                            height: 2.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

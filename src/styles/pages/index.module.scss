@@ -33,6 +33,7 @@
 
     img {
         border-radius: 50%;
+        object-fit: cover;
         width: clamp(4rem, 5vw, 6rem);
         height: clamp(4rem, 5vw, 6rem);
         filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.658));
