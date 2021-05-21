@@ -1,30 +1,99 @@
 .container {
+    margin-top: clamp(1rem, 2vw, 4rem);
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: var(--grayGradient);
-    width: clamp(40rem, 55vw, 975px);
-    height: clamp(20rem, 33vw, 600px);
+
+    width: clamp(60rem, 75vw, 1730px);
+    height: clamp(30rem, 33vw, 625px);
     border-radius: 15px;
-    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.25);
-    margin-top: 3vw;
 }
 
-.medicinesOnDay {
-    width: clamp(25rem, 28.5vw, 35rem);
-    height: clamp(20rem, 25vw, 35rem);
+.emergencyContainer {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    gap: clamp(0.8rem, 1vw, 1.5rem);
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin-top: clamp(3rem, 4vw, 60px);
+    &::-webkit-scrollbar {
+        width: 1.2rem;
+    }
+
+    &::-webkit-scrollbar-track {
+        height: 1rem;
+        background: var(--purple);
+        border-radius: 1rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border: 4px solid rgba(0, 0, 0, 0);
+        background-clip: padding-box;
+        background-color: var(--greenBlue);
+        border-radius: 1rem;
+    }
+}
+
+.emergencyItem {
+    min-width: clamp(15rem, 20vw, 375px);
+    height: clamp(20rem, 25vw, 475px);
+    background: var(--verticalGradient);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 1.5rem;
+    color: #fff;
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    transition: transform 0.2s, filter 0.2s;
+    position: relative;
+    margin-bottom: clamp(1rem, 2vw, 40px);
+
+    &[id="today"] {
+        background: var(--darkLinear);
+
+        h3 {
+            color: var(--green);
+        }
+    }
+
+    &[id="inactive"] {
+        opacity: 0.6;
+
+        a {
+            pointer-events: none;
+        }
+    }
 
     h3 {
-        font-size: clamp(1.3rem, 1.5vw, 1.5rem);
-        font-weight: 600;
-        color: #fff;
-        filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.568));
+        position: absolute;
+        top: clamp(0.6rem, 1.2vw, 18px);
+        font-size: clamp(1rem, 1.5vw, 1.6rem);
+        font-weight: 700;
+    }
+
+    a {
+        cursor: pointer;
+        position: absolute;
+        bottom: clamp(0.5rem, 1vw, 15px);
+
+        span {
+            display: none;
+        }
+    }
+}
+
+.seeMoreBTN {
+    width: clamp(1rem, 1.5vw, 22.5px);
+    height: clamp(0.7rem, 1vw, 15px);
+    transition: scale 0.4s;
+
+    &:hover {
+        transform: scale(1.1);
     }
 }
 
@@ -35,7 +104,7 @@
     gap: clamp(0.4rem, 0.8vw, 12px);
     margin-top: 1rem;
     width: 90%;
-    height: 75%;
+    height: clamp(15rem, 18vw, 350px);
     overflow-y: auto;
 
     &::-webkit-scrollbar {
@@ -43,92 +112,79 @@
     }
 
     div {
-        width: 98%;
+        width: 100%;
         height: clamp(2.5rem, 3.7vw, 55px);
         display: flex;
         justify-content: right;
         align-items: center;
         padding: clamp(0.8rem, 1.5vw, 20px);
         background: var(--darkPurple);
-        font-size: clamp(1rem, 1.5vw, 1.6rem);
+        font-size: clamp(1rem, 1.5vw, 1.5rem);
         font-weight: 700;
         border-radius: 15px;
         box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.25);
         transition: filter 0.2s;
-        color: #fff;
         position: relative;
 
-        div:nth-child(2) {
+        &:nth-child(2) {
             background: var(--greenBlue);
         }
 
-        div:nth-child(3) {
+        &:nth-child(3) {
             background: #f306ea;
         }
 
-        div:nth-child(4) {
+        &:nth-child(4) {
             background: #2ecd5b;
         }
 
-        div:nth-child(5) {
+        &:nth-child(5) {
             background: #f37806;
+        }
+
+        // Status of medicine
+        &[id="noTaken"] {
+            opacity: 1;
+            background-color: #c97474;
+            border: 0.2rem solid #740e0e;
+            pointer-events: none;
+            opacity: 0.5;
+            color: #740e0e;
+
+            hr {
+                border: 0;
+                border-left: 2px solid;
+            }
+        }
+
+        &[id="taken"] {
+            opacity: 0.5;
+            pointer-events: none;
+
+            hr:last-child {
+                display: block;
+                position: absolute;
+                left: 0;
+                height: 0;
+                border: 0;
+                width: 90%;
+                border-bottom: 4px solid;
+            }
         }
 
         p ~ p {
             overflow: hidden;
         }
-    }
 
-    hr {
-        height: clamp(1.5rem, 2.5vw, 37.5px);
-        border-left: 1px solid;
-        margin-left: clamp(0.5rem, 1vw, 20px);
-        margin-right: clamp(0.5rem, 1vw, 20px);
-    }
+        hr {
+            height: clamp(1.5rem, 2.5vw, 37.5px);
+            border-left: 1px solid;
+            margin-left: clamp(0.5rem, 1vw, 20px);
+            margin-right: clamp(0.5rem, 1vw, 20px);
 
-    button {
-        cursor: pointer;
-        background: none;
-        border: 0;
-        width: clamp(0.8rem, 1.2vw, 18px);
-        height: clamp(0.8rem, 1.2vw, 18px);
-        position: absolute;
-        right: 1vw;
-        transition: transform 0.2s;
-
-        &:hover {
-            transform: scale(1.2);
+            &:last-child {
+                display: none;
+            }
         }
-
-        img {
-            width: 100%;
-            height: 100%;
-        }
-    }
-}
-
-.addMedicine {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: clamp(5rem, 9.5vw, 140px);
-    height: clamp(5rem, 9.5vw, 140px);
-    border-radius: 50%;
-    background: var(--purple);
-
-    position: absolute;
-    right: clamp(1rem, 1.5vw, 22.5px);
-    bottom: clamp(0.6rem, 1vw, 15px);
-
-    transition: transform 0.2s, filter 0.2s;
-
-    &:hover {
-        transform: scale(1.05);
-        filter: brightness(0.8);
-    }
-
-    img {
-        width: clamp(2rem, 3vw, 45px);
-        height: clamp(2rem, 3vw, 45px);
     }
 }

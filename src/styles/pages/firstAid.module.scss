@@ -5,11 +5,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: var(--grayGradient);
     width: clamp(40rem, 65vw, 1200px);
     height: clamp(22rem, 30vw, 600px);
     border-radius: 15px;
-    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.25);
 }
 
 .firstAidItems {
@@ -21,29 +19,28 @@
         "li li";
     grid-gap: clamp(0.5rem, 1vw, 1rem);
 
-    a {
-        cursor: pointer;
+    div {
+        width: clamp(14rem, 22vw, 25rem);
+        height: clamp(3rem, 5vw, 5rem);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: clamp(1rem, 1.2vw, 1.3rem);
+        font-weight: 700;
+        color: var(--font1);
+
+        border-radius: 1rem;
+        background: var(--secondaryColor);
+        box-shadow: 4px 4px 15px var(--boxShadow);
+
         transition: transform 0.2s, filter 0.2s;
+        cursor: pointer;
 
         &:hover {
             transform: scale(1.01);
             filter: brightness(0.8);
-        }
-
-        div {
-            width: clamp(14rem, 22vw, 25rem);
-            height: clamp(3rem, 5vw, 5rem);
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            font-size: clamp(1rem, 1.2vw, 1.3rem);
-            font-weight: 700;
-            color: #fff;
-
-            border-radius: 1rem;
-            background: var(--purple);
         }
     }
 }
@@ -93,7 +90,7 @@
 
     .legend {
         overflow-y: auto;
-        width: clamp(15rem, 17vw, 20rem);
+        width: clamp(15rem, 20vw, 25rem);
         height: clamp(17rem, 23vw, 24rem);
 
         text-align: justify;

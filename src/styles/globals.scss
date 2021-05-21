@@ -5,18 +5,27 @@
 }
 
 :root {
-  --purpleToGreenBlue: linear-gradient(89.89deg, #6b42e1 20.24%, rgba(20, 216, 228, 0.79) 97.14%);
+  //icons
   --google: linear-gradient(90deg, #e3e3e3 5.22%, #fbfbfb 100%);
   --facebook: linear-gradient(90deg, #4267b2 32.03%, rgba(107, 147, 226, 0.75) 100%);
+
+  //Others
+  --green: #2ecd5b;
   --red: #e83f5b;
+  --placeholder: #81838e;
+
+  //AppColors
+  --purpleToGreenBlue: linear-gradient(89.89deg, #6b42e1 20.24%, rgba(20, 216, 228, 0.79) 97.14%);
+  --verticalGradient: linear-gradient(180deg, #6b42e1 0%, #14d8e4 100%);
   --greenBlue: #14d8e4;
   --purple: #6b42e1;
-  --green: #2ecd5b;
-  --grayGradient: linear-gradient(180deg, rgba(229, 229, 229, 0.31) 0%, #ffffff 100%);
   --darkPurple: #3b1f8d;
-  --verticalGradient: linear-gradient(180deg, #6b42e1 0%, #14d8e4 100%);
-  --placeholder: #969696;
+  --grayGradient: linear-gradient(180deg, rgba(189, 201, 224, 0.31) 0%, #bdc1d62c 100%);
   --darkLinear: linear-gradient(180deg, #6b42e1 9.17%, #6b42e1 21.88%, #250849 100%);
+
+
+  --dark3: #62657a;
+
 }
 
 @media (max-width: 1080px) {
@@ -38,11 +47,6 @@ button {
   font: 400 1rem "Montserrat", sans-serif;
 }
 
-body {
-  // darkTheme
-  // background:  var(--darkLinear);;
-}
-
 button {
   cursor: pointer;
 }
@@ -58,11 +62,7 @@ a {
   margin: 0;
   padding: 0;
 
-  // Normal
-  background: url("/img/backgrounds/background.png") no-repeat center center fixed;
-
-  //dark theme
-  // background: url("/img/backgrounds/darkBackground.png") no-repeat center center fixed;
+  background: url("/img/backgrounds/whiteTheme.png") no-repeat center center fixed;
 
   background-repeat: no-repeat;
   background-size: cover;
@@ -75,7 +75,26 @@ a {
   position: relative;
 }
 
-.containerBackground {
+#container1 {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+
+  background: url("/img/backgrounds/whiteTheme1.png") no-repeat center center fixed;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+}
+
+.main {
   height: 100vh;
   max-height: 1080px;
   width: 100vw;
@@ -102,9 +121,26 @@ a {
   color: #fff;
 
   filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.479));
+  text-shadow: 0px 5px 10px rgba(107, 66, 225, 0.7);
 
   img {
     width: clamp(4rem, 6vw, 7rem);
     height: clamp(4rem, 6vw, 7rem);
+  }
+}
+
+body[data-theme="dark"] {
+  #container1 {
+    background: url("/img/backgrounds/darkTheme.png") no-repeat center center fixed;
+  }
+
+  .container {
+    background: url("/img/backgrounds/darkTheme.png") no-repeat center center fixed;
+  }
+}
+
+body[data-theme="light"] {
+  #container1 {
+    background: url("/img/backgrounds/whiteTheme1.png") no-repeat center center fixed;
   }
 }
