@@ -9,189 +9,163 @@ import { concatWithWithoutStatus } from "../utils/concatWithWithoutStatus";
 import { medicinesOnDay } from "../utils/medicinesOnDay";
 import { parseCookies } from "../utils/parseCookies";
 
-const Medicine = () => {
+const Medicine = (props) => {
+
   //Variables
-  const [data, setData] = useState([]);
+  const {
+    getAllMedicinesOfDay,
+  } = useApp();
+
   const router = useRouter();
-
-  //Return the date of days of week
-  var currentDate = moment();
-  var weekStart = currentDate.clone().startOf("week");
-
-  var days = [];
-  for (var i = 0; i <= 6; i++) {
-    days.push(moment(weekStart).add(i, "days").format("YYYY-MM-DD"));
-  }
-
-  // Filter data of days week
-  const segunda = data.filter((medicine) =>
-    moment(days[1]).isBetween(medicine.dateI, medicine.dateF, null, "[]")
-  );
-  const terca = data.filter((medicine) =>
-    moment(days[2]).isBetween(medicine.dateI, medicine.dateF, null, "[]")
-  );
-  const quarta = data.filter((medicine) =>
-    moment(days[3]).isBetween(medicine.dateI, medicine.dateF, null, "[]")
-  );
-  const quinta = data.filter((medicine) =>
-    moment(days[4]).isBetween(medicine.dateI, medicine.dateF, null, "[]")
-  );
-  const sexta = data.filter((medicine) =>
-    moment(days[5]).isBetween(medicine.dateI, medicine.dateF, null, "[]")
-  );
-  const sabado = data.filter((medicine) =>
-    moment(days[6]).isBetween(medicine.dateI, medicine.dateF, null, "[]")
-  );
-  const domingo = data.filter((medicine) =>
-    moment(days[0]).isBetween(medicine.dateI, medicine.dateF, null, "[]")
-  );
-
-  // variables to use in mapFunction
-  const daysWeek = [
-    "Segunda",
-    "Terça",
-    "Quarta",
-    "Quinta",
-    "Sexta",
-    "Sábado",
-    "Domingo",
-  ];
-  var medicinesOnDay = [segunda, terca, quarta, quinta, sexta, sabado, domingo];
-
-  // Order medicines of day by time
-  const array = [];
-  for (var i = 0; i < medicinesOnDay.length; i++) {
-    if (medicinesOnDay[i].length > 0) {
-      const x = medicinesOnDay[i].sort(function (a, b) {
-        const n1 = parseInt(b.time.replace(":", ""));
-        const n2 = parseInt(a.time.replace(":", ""));
-        return n2 - n1;
-      });
-      array.push(x);
-    } else {
-      array.push([]);
-    }
-  }
-
-  // medicinesOnDay ordered
-  medicinesOnDay = array;
-
-  useEffect(() => {
-    async function teste() {
-      try {
-        // Get token in LocalStorage
-        const token = localStorage.getItem("token");
-
-        // API connection
-        const indexLogged = await fetch("http://localhost:3333/show/schedule", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: ` Bearer ${token}`,
-          },
-        });
-
-        // Get JSON information and save in variables line (7-9)
-        const dataJson = await indexLogged.json();
-
-        const data = [];
-        for (var i = 0; i < dataJson.length; i++) {
-          // Show only "YYYY-MM-DD"
-          const initialDate = dataJson[i].dateI
-            .toString()
-            .replace("T03:00:00.000Z", "");
-          const finalDate = dataJson[i].dateF
-            .toString()
-            .replace("T03:00:00.000Z", "");
-
-          // Data to show
-          data.push({
-            medicine: dataJson[i].medicine,
-            id: dataJson[i].id,
-            time: dataJson[i].time,
-            dateI: initialDate,
-            dateF: finalDate,
-          });
-        }
-
-        return setData(data);
-      } catch (error) {
-        console.log("deu merda");
-      }
-    }
-
-    teste();
-  }, []);
+  const today = getAllMedicinesOfDay(props.data);
 
   function setInformation() {
     // Select link clicked and set this medicines on localStorage
     document.querySelectorAll("a").forEach((a) => {
       a.onclick = (event) => {
-        const dayClicked = a.querySelector("span").innerHTML;
-        localStorage.setItem(
-          "medicines",
-          JSON.stringify(medicinesOnDay[daysWeek.indexOf(dayClicked)])
-        );
-
-        router.push(`/MedicineDay?day=${dayClicked}`);
-      };
-    });
+        const dayClicked = a.querySelector('span').innerHTML
+        router.push(`/MedicineDay?day=${dayClicked}`)
+        // localStorage.setItem('medicines', JSON.stringify(props.data[props.daysWeek.indexOf(dayClicked)]))
+      }
+    })
   }
+
   return (
-    <Layout>
+    <div className='container'>
       <div className="containerBackground">
         <Header />
 
         <div className={styles.container}>
-          <div className={titlePage.titlePage}>
+          <div className='titlePage'>
             <img src="/img/icons/medicine.png" />
             Remédios
           </div>
 
           <div className={styles.emergencyContainer}>
+
             {/* Show div of each day in week */}
-            {daysWeek.map((days) => (
-              
-              <div className={`${styles.emergencyItem} ${animate.up}`}
+            {props.daysWeek.map((days) => (
+
+              <div
+                key={props.daysWeek.indexOf(days)}
+                className={`${styles.emergencyItem} ${animate.up}`}
+                id={
+                  props.daysWeek.indexOf(days) === today ? 'today' : ''
+                    || props.daysWeek.indexOf(days) < today ? 'inactive' : ''
+                }
               >
                 <h3>{days}</h3>
 
-                {/* if has no medicine in this day, show <NoMedicines/> */}
-                {medicinesOnDay[daysWeek.indexOf(days)].length > 0 ? (
+                {/* if no has medicine in this day, show <NoMedicines/> */}
+                {props.data[props.daysWeek.indexOf(days)].length > 0 ? (
                   <>
                     <div className={`${styles.medicines} ${animate.upSlow}`}>
-                      {/* show each medicine of this day */}
-                      {medicinesOnDay[daysWeek.indexOf(days)].map(
-                        (medicine) => (
-                          <div className={animate.upMoreSlow} >
 
-                           
-                            <p>{medicine.time}</p>
-                            <hr></hr>
-                            <p>{medicine.medicine}</p>
-                          </div>
-                        )
-                      )}
+                      {/* show each medicine of this day */}
+                      {props.data[props.daysWeek.indexOf(days)].map((medicine) => (
+
+                        <div
+                          className={animate.upMoreSlow}
+                          key={medicine.id}
+                          id={medicine.status === 1 ? 'noTaken' : medicine.status === 0 ? 'taken' : ''}
+                        >
+                          <p>{medicine.time}</p>
+                          <hr></hr>
+                          <p>{medicine.name}</p>
+                          <hr></hr>
+                        </div>
+                      ))}
+
                     </div>
 
                     <a onClick={setInformation}>
-                      <img
-                        className={styles.seeMoreBTN}
-                        src="/img/icons/seeMore.png"
-                      />
+                      <img className={styles.seeMoreBTN} src="/img/icons/seeMore.png" />
                       <span>{days}</span>
                     </a>
                   </>
+
                 ) : (
                   <NoMedicines />
                 )}
+
               </div>
             ))}
+
           </div>
         </div>
       </div>
-    </Layout>
+    </div >
   );
 };
 
 export default Medicine;
+
+
+
+export async function getServerSideProps({ req }) {
+  // Get token in cookies
+  const token = parseCookies(req).token;
+
+  // API connection
+  const response = await fetch('http://localhost:3333/showMedicine', {
+    method: "GET",
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': ` Bearer ${token}`
+    },
+  });
+
+  const responseJSON = await response.json()
+
+  // All Medicines
+  const array = [];
+  for (var i = 0; i < responseJSON[0].length; i++) {
+
+    // Show only "YYYY-MM-DD"
+    const initialDate = responseJSON[0][i].initialDate.toString().replace('T03:00:00.000Z', '');
+    const finalDate = responseJSON[0][i].finalDate.toString().replace('T03:00:00.000Z', '');
+
+    // Data to show
+    array.push({
+      'name': responseJSON[0][i].name,
+      'id': responseJSON[0][i].id,
+      'time': responseJSON[0][i].time,
+      'initialDate': initialDate,
+      'finalDate': finalDate,
+      'status': 2,
+    })
+  }
+
+  //Medicines Status
+  const arrayOfStatusMedicines = []
+  for (var i = 0; i < responseJSON[1].length; i++) {
+
+    // Show only "YYYY-MM-DD"
+    const initialDate = responseJSON[1][i].initialDate.toString().replace('T03:00:00.000Z', '');
+    const finalDate = responseJSON[1][i].finalDate.toString().replace('T03:00:00.000Z', '');
+    const date = responseJSON[1][i].date.toString().replace('T03:00:00.000Z', '');
+
+    // Data to show
+    arrayOfStatusMedicines.push({
+      'name': responseJSON[1][i].name,
+      'id': responseJSON[1][i].id,
+      'time': responseJSON[1][i].time,
+      'status': responseJSON[1][i].status,
+      'date': date
+    })
+  }
+
+  // calls the function to handle the data
+  const data = medicinesOnDay(array);
+
+  // const dataStatus = medicinesOnDay(arrayOfStatusMedicines);
+  const dataFinal = concatWithWithoutStatus({ data, arrayOfStatusMedicines })
+
+  return {
+    props: {
+      data: dataFinal,
+      daysWeek: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
+      ,
+    }
+  }
+}

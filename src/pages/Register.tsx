@@ -1,4 +1,4 @@
-import React, { SyntheticEvent } from "react";
+import React, { SyntheticEvent, useEffect } from "react";
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import styles from '../styles/pages/login_register.module.scss';
@@ -10,13 +10,32 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
 
-    //const {data} = useContext(ChallengesContext)
-
     // definition of variables
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [imagePerfil, setImagePerfil] = useState('')
     const router = useRouter();
+
+    // Open input file and change image
+    function upload() {
+        document.getElementById('uploadImage').click();
+    }
+
+    function uploadFile(inputElement) {
+        var file = document.getElementById('uploadImage').files[0];
+        
+        var reader = new FileReader();
+        reader.onloadend = function () {
+            /******************* for Binary ***********************/
+            var data = (reader.result).split(',')[1];
+            var binaryBlob = atob(data);
+            setImagePerfil(binaryBlob)
+            document.querySelector('#imageSRC').src = 'data:image/jpeg;base64,' + btoa(binaryBlob);
+        }
+
+        reader.readAsDataURL(file);
+    }
 
     // submit function
     const submit = async (e: SyntheticEvent) => {
@@ -24,13 +43,14 @@ const Register = () => {
             e.preventDefault();
 
             // API connection
-            const register = await fetch('http://localhost:3333/users/register', {
+            const register = await fetch('http://localhost:3333/register', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     username: name,
                     email: email,
-                    password: password
+                    password: password,
+                    imagePerfil: imagePerfil
                 })
             });
 
@@ -68,12 +88,26 @@ const Register = () => {
                         </p>
                     </div>
 
+                    <div className={styles.imageProfile}>
+                        <img id="imageSRC" src='img/icons/userPurple.png' />
+                        <button type='button' onClick={upload}>
+                            <input
+                                id="uploadImage"
+                                onChange={uploadFile}
+                                type="file"
+                            />
+
+                            Selecinar Imagem
+                        </button>
+
+                    </div>
+
 
                     <div className={styles.inputContainer}>
                         <img src="img/icons/userPurple.png" />
                         <input
                             onChange={e => setName(e.target.value)}
-                            placeholder="Insira seu Nome"
+                            placeholder="Lurdes"
                             required
                         />
                     </div>
@@ -82,7 +116,7 @@ const Register = () => {
                         <img src="img/icons/userPurple.png" />
                         <input
                             onChange={e => setEmail(e.target.value)}
-                            placeholder="Insira seu E-mail"
+                            placeholder="lurdes@gmail.com"
                             required
                         />
                     </div>

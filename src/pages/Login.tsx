@@ -9,7 +9,6 @@ import animate from '../styles/animation/animation.module.css';
 import { useCookies } from "react-cookie";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import Head from 'next/Head'
 
 const Login = () => {
   const [cookie, setCookie] = useCookies(["token"])
@@ -24,7 +23,7 @@ const Login = () => {
     e.preventDefault();
 
     // API connection
-    const login = await fetch("http://localhost:3333/users/login", {
+    const response = await fetch("http://localhost:3333/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -35,22 +34,21 @@ const Login = () => {
       }),
     });
 
+    console.log(response.status )
+
     // login sucess or not
-    if (login.status === 200) {
-      // Get token
-      const { token } = await login.json();
+    if (response.status === 200) {
+
+      // Set token
+      const { token } = await response.json();
       setCookie("token", token, {
         path: "/",
         maxAge: 60 * 60 * 24, // Expires after 24hr
         sameSite: true,
       });
 
-      toast.success("Login feito com sucesso!", {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 5000,
-      });
-
       return router.push('/');
+
     } else {
       toast.error("Email ou senha incorretos, tente novamente...", {
         position: toast.POSITION.TOP_RIGHT,
@@ -60,16 +58,7 @@ const Login = () => {
   };
 
   return (
-
-    
     <>
-
-    <Head>
-   
-        <meta name="google-signin-client_id" content="145197644199-d97oe8n4n9qp7us8nlodbl8rcg27i5ni.apps.googleusercontent.com" />
-        <script src="https://apis.google.com/js/platform.js" async defer></script>
-   
-    </Head>
       <div className={styles.rowContainer}>
 
         <BannerWelcome />
