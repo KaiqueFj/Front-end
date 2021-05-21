@@ -6,10 +6,22 @@ import React, { SyntheticEvent } from "react";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
 
+type UserInformation = {
+    adress: String,
+    age: Number,
+    cep: String,
+    chronicDisease:  String,
+    height: String,
+    phoneNumber: String,
+    weight: String,
+}
+
 type AppContextData = {
     medicinesToday: Array<Object>
+    userInformation: UserInformation[];
     medicineDayNotification: () => void;
     getAllMedicinesOfDay: (props: Array<Object>) => Number;
+    getUserInformation: (props: Array<Object>) => void;
 }
 
 export const AppContext = createContext({} as AppContextData);
@@ -22,6 +34,7 @@ export function AppContextProvider({ children }: AppContextProviderProps) {
 
     // variables
     const [medicinesToday, setMedicinesToday] = useState([]);
+    const [userInformation, setUserInformation] = useState([]);
     const router = useRouter();
 
     // Functions
@@ -51,11 +64,17 @@ export function AppContextProvider({ children }: AppContextProviderProps) {
         return indexOf;
     }
 
-    // Notifications
+    function getUserInformation(props){
+        setUserInformation(props);
+    }
+
+
     return (
         <AppContext.Provider
             value={{
+                userInformation,
                 medicinesToday,
+                getUserInformation,
                 medicineDayNotification,
                 getAllMedicinesOfDay,
             }}>

@@ -9,6 +9,7 @@ import animate from '../styles/animation/animation.module.css';
 import { useCookies } from "react-cookie";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import Head from 'next/Head'
 
 const Login = () => {
   const [cookie, setCookie] = useCookies(["token"])
@@ -59,7 +60,16 @@ const Login = () => {
   };
 
   return (
+
+    
     <>
+
+    <Head>
+   
+        <meta name="google-signin-client_id" content="145197644199-d97oe8n4n9qp7us8nlodbl8rcg27i5ni.apps.googleusercontent.com" />
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+   
+    </Head>
       <div className={styles.rowContainer}>
 
         <BannerWelcome />

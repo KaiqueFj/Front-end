@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/pages/map.tsx", "src/Components/map.js"  ],
+, "src/pages/map.tsx", "src/Components/map.js", "src/Components/OtherLoginOptions/otherLoginOptions.tsx"  ],
   "exclude": [
     "node_modules"
   ],
