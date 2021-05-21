@@ -7,6 +7,8 @@ import animate from '../styles/animation/animation.module.css';
 import Head from "next/Head";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { useApp } from "../Contexts/AppContexts";
+import Link from "next/Link";
 
 const Register = () => {
 
@@ -68,8 +70,10 @@ const Register = () => {
         }
     }
 
+    const {theme} = useApp();
+
     return (
-        <>
+        <div className="container">
             <Head>
                 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
             </Head>
@@ -84,12 +88,14 @@ const Register = () => {
                     <div className={styles.legend}>
                         <h1>Registre-se</h1>
                         <p>Caso tenha uma conta, volte para
-                    <a href='/Login'> Login</a>
+                    <Link href='/Login'> Login</Link>
                         </p>
                     </div>
 
                     <div className={styles.imageProfile}>
-                        <img id="imageSRC" src='img/icons/userPurple.png' />
+                        <img id="imageSRC" 
+                        src={(theme === 'light') ? "img/icons/userPurple4.png" : "img/icons/userPurple.png"} 
+                        />
                         <button type='button' onClick={upload}>
                             <input
                                 id="uploadImage"
@@ -104,7 +110,7 @@ const Register = () => {
 
 
                     <div className={styles.inputContainer}>
-                        <img src="img/icons/userPurple.png" />
+                        <img src={(theme === 'light') ? "img/icons/userPurple4.png" : "img/icons/userPurple.png"}  />
                         <input
                             onChange={e => setName(e.target.value)}
                             placeholder="Lurdes"
@@ -113,7 +119,7 @@ const Register = () => {
                     </div>
 
                     <div className={styles.inputContainer}>
-                        <img src="img/icons/userPurple.png" />
+                        <img src={(theme === 'light') ? "img/icons/userPurple4.png" : "img/icons/userPurple.png"}  />
                         <input
                             onChange={e => setEmail(e.target.value)}
                             placeholder="lurdes@gmail.com"
@@ -122,7 +128,7 @@ const Register = () => {
                     </div>
 
                     <div className={styles.inputContainer}>
-                        <img src="img/icons/password.png" />
+                        <img src={(theme === 'light') ? "img/icons/password2.png" : "img/icons/password.png"} />
                         <input
                             onChange={e => setPassword(e.target.value)}
                             type="password"
@@ -138,7 +144,7 @@ const Register = () => {
 
                 </form>
             </div>
-        </>
+        </div>
 
     );
 };

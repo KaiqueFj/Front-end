@@ -7,15 +7,14 @@ import animate from '../styles/animation/animation.module.css';
 const FirstAidPage = () => {
 
     return (
-        <div className='container'>
-            <div className="containerBackground">
+        <div id='container1'>
+            <div className="main">
 
                 <Header />
 
                 <div className={styles.container}>
 
                     <div className='titlePage'>
-                        <img src='/img/icons/firstAid.png' />
                         Desmaio
                     </div>
 

@@ -52,7 +52,7 @@ export default function Status() {
 
     return (
 
-        <div className='container'>
+        <div id='container1'>
             <div className={`${styles.container} ${animate.up}`}>
                 <div className={styles.titlePage}>
                     <div>

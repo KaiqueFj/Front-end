@@ -7,35 +7,38 @@ import animate from '../styles/animation/animation.module.css';
 const Emergency = () => {
 
     return (
-        <div className='container'>
-            <div className='containerBackground'>
+        <div id='container1'>
+            <div className='main'>
                 <Header />
 
                 <div className={styles.container}>
-                    <div className='titlePage'>
-                        <img src='/img/icons/emergency.png' />
-                        Emergência
-                    </div>
 
                     <div className={styles.emergencyGrid}>
                         <div className={`${styles.emergencyItem} ${animate.up}`}>
-                            <img src='img/icons/cop.png' />
-                        Polícia
+                            <div>
+                                <img src='/img/icons/copBanner.jpg'/>
+                                <img src='img/icons/cop.png' />
+                            </div>
+                            <p>Polícia</p>
                         </div>
 
                         <div className={`${styles.emergencyItem} ${animate.upSlow}`}>
-                            <img src='img/icons/fireman.png' />
-                        Bombeiro
-                         </div>
+                            <div>
+                                <img src='/img/icons/firemanBanner.jpg'/>
+                                <img src='img/icons/fireman.png' />
+                            </div>
+                            <p>Bombeiro</p>
+                        </div>
 
                         <div className={`${styles.emergencyItem} ${animate.upMoreSlow}`}>
-                            <img src='img/icons/ambulance.png' />
-                        Ambulância
+                            <div>
+                                <img src='/img/icons/ambulanceBanner.jpg'/>
+                                <img src='img/icons/ambulance.png' />
+                            </div>
+                            <p>Ambulância</p>
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </div >
     );

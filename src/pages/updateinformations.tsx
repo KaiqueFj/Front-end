@@ -6,8 +6,11 @@ import { useRouter } from "next/router";
 import { parseCookies } from "../utils/parseCookies";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { useApp } from "../Contexts/AppContexts";
 
 const UpdateInformations = ({ req }) => {
+
+    const {theme} = useApp();
 
     // definition of variables
     const [adress, setAdress] = useState("");
@@ -62,17 +65,20 @@ const UpdateInformations = ({ req }) => {
     };
 
     return (
-        <div className={styles.container}>
-            <div className={styles.backgroundImage} />
+        <div className={styles.container} id={theme}>
             <Header />
 
             <div className={styles.banner}>
-                <img src="/teste.png" />
+
+                <img src="/img/icons/logo.png" />
                 <p>
                     O preenchimento das seguintes informações são opcionais,
                     elas servem para agilizar o preenchimento dos formulários
                     de consulta e uma melhor usabilidade do site.
                 </p>
+
+                <div className={styles.backgroundImage} />
+
             </div>
 
             <div className={styles.informations}>

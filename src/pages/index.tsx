@@ -1,5 +1,5 @@
 import Link from 'next/Link';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import NotLogged from '../Components/NotLogged/notLogged';
 import { useApp } from '../Contexts/AppContexts';
@@ -11,10 +11,11 @@ import { parseCookies } from '../utils/parseCookies';
 export default function Home(props) {
   const [cookie, setCookie] = useCookies(["token"])
   const [imageProfile, setImageProfile] = useState('');
+  const { theme, toggleTheme } = useApp();
 
   function logout() {
     setCookie("token", "");
-    document.location.reload(true);
+    // document.location.reload(true);
   }
 
   useEffect(() => {
@@ -24,8 +25,12 @@ export default function Home(props) {
   return (
     <>
       {props.isLogged ? (
-        <div className='container'>
-          <div className='containerBackground'>
+        <div id='container1'>
+          <div className='main'>
+
+            <button onClick={toggleTheme}>
+              Switch to {theme === 'light' ? 'dark' : 'light'} mode
+            </button>
 
             <div
               className={`${styles.header}`} id="header" onMouseLeave={initialProfile}>
@@ -49,10 +54,12 @@ export default function Home(props) {
                 </Link>
                 <hr></hr>
 
-                <button onClick={logout}>
-                  <img src="/img/icons/sair.png" />
+                <Link href="/">
+                  <button onClick={logout}>
+                    <img src="/img/icons/sair.png" />
                   Sair
                 </button>
+                </Link>
               </div>
             </div>
 
@@ -62,8 +69,8 @@ export default function Home(props) {
                 <Link href="/Emergency">
                   <div>
                     <img src='img/icons/emergency.png' />
-                  Emergência
-                </div>
+                    <p>Emergência</p>
+                  </div>
                 </Link>
               </div>
 
@@ -71,8 +78,8 @@ export default function Home(props) {
                 <Link href="/Medicines">
                   <div>
                     <img src='img/icons/medicine.png' />
-                  Remédios
-                </div>
+                    <p>Remédios</p>
+                  </div>
                 </Link>
               </div>
 
@@ -80,17 +87,17 @@ export default function Home(props) {
                 <Link href="Appointment">
                   <div>
                     <img src='img/icons/consultas.png' />
-                  Consultas
-                </div>
+                    <p>Consultas</p>
+                  </div>
                 </Link>
               </div>
 
               <div className={`${animate.upSlow} ${styles.menuItem}`}>
-                <Link href="Recipes">
+                <Link href="History">
                   <div>
-                    <img src='img/icons/recipe.png' />
-                  Receitas
-                </div>
+                    <img src='img/icons/history.png' />
+                    <p>Histórico de Consultas</p>
+                  </div>
                 </Link>
               </div>
 
@@ -98,8 +105,8 @@ export default function Home(props) {
                 <Link href="FirstAid">
                   <div>
                     <img src='img/icons/firstAid.png' />
-                  Socorros
-                </div>
+                    <p>Socorros</p>
+                  </div>
                 </Link>
               </div>
 
@@ -107,8 +114,8 @@ export default function Home(props) {
                 <Link href="Help">
                   <div>
                     <img src='img/icons/help.png' />
-                  Ajuda
-                </div>
+                    <p>Ajuda</p>
+                  </div>
                 </Link>
               </div>
 

@@ -9,6 +9,8 @@ import animate from '../styles/animation/animation.module.css';
 import { useCookies } from "react-cookie";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import Link from "next/Link";
+import { useApp } from "../Contexts/AppContexts";
 
 const Login = () => {
   const [cookie, setCookie] = useCookies(["token"])
@@ -34,8 +36,6 @@ const Login = () => {
       }),
     });
 
-    console.log(response.status )
-
     // login sucess or not
     if (response.status === 200) {
 
@@ -57,8 +57,10 @@ const Login = () => {
     }
   };
 
+  const {theme} = useApp();
+
   return (
-    <>
+    <div className='container'>
       <div className={styles.rowContainer}>
 
         <BannerWelcome />
@@ -68,12 +70,14 @@ const Login = () => {
           <div className={styles.legend}>
             <h1>Login</h1>
             <p>Caso não tenha uma conta...
-                <a href='/Register'> Registre-se</a>
+        <Link href='/Register'> Registre-se</Link>
             </p>
           </div>
 
+          <OtherLoginOptions />
+
           <div className={styles.inputContainer}>
-            <img src="img/icons/userPurple.png" />
+            <img src={(theme === 'light') ? "img/icons/userPurple4.png" : "img/icons/userPurple.png"}   />
             <input
               onChange={(e) => setEmail(e.target.value)}
               placeholder="lurdes@gmail.com"
@@ -82,7 +86,7 @@ const Login = () => {
           </div>
 
           <div className={styles.inputContainer}>
-            <img src="img/icons/password.png" />
+            <img src={(theme === 'light') ? "img/icons/password2.png" : "img/icons/password.png"}  />
             <input
               onChange={(e) => setPassword(e.target.value)}
               type="password"
@@ -97,16 +101,12 @@ const Login = () => {
 
           <button type="submit">
             <img src="img/icons/login.png" />
-              Login
+            Login
           </button>
 
-          <OtherLoginOptions />
         </form>
-
-
       </div>
-
-    </>
+    </div>
   );
 };
 
